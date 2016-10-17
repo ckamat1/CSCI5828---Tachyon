@@ -8,6 +8,11 @@ from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import render
 
+MYSQL_IP = "127.0.0.1"
+MYSQL_USER = "root"
+MYSQL_PASSWORD = "topspin@123"
+MYSQL_DATABASE = "student"
+
 def home(request):
     return render(request, 'home.html', {'right_now':datetime.today()})
 
@@ -23,7 +28,7 @@ def register(request):
     gender=request.GET.get('gender','')
     project=request.GET.get('project','')
 
-    db = MySQLdb.connect("127.0.0.1","root","a","student")
+    db = MySQLdb.connect(MYSQL_IP,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE)
 
 # prepare a cursor object using cursor() method
     cursor = db.cursor()
@@ -56,8 +61,7 @@ def register(request):
     return HttpResponse(response)
 
 def printdata(request):
-    db = MySQLdb.connect("127.0.0.1","root","a","student" )
-
+    db = MySQLdb.connect(MYSQL_IP,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE)
 # prepare a cursor object using cursor() method
     cursor = db.cursor()
 
