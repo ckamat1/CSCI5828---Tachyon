@@ -1,0 +1,71 @@
+{% load static %}
+<html>
+<head>
+
+<title>
+PROJECT SUBMISSION PAGE
+</title>
+<link rel="stylesheet" type="text/css" href="{% static 'dlcapp/style.css' %}" />
+</head>
+<body>
+<marquee><h1>Welcome to Discovery Learning Apprenticeship program</h1></marquee>
+
+<form method="GET" name="form1" action="/register/">
+<div id="about">
+<table cellspacing="50" align="center">
+<tr>
+<td>
+   <label for="First Name">First Name : </label></td><td>
+    <input  type="text" name="firstname" id="firstname" >
+</td>
+  </tr>
+
+<tr>
+<td>
+   <label for="Last Name">Last Name</label></td><td>
+    <input type="text" name="lastname" id="lastname">
+</td>
+  </tr>
+    <tr>
+	<td>
+	   <label for="Name">Gender</label></td><td>
+    Male : <input type="radio" value="M" name="gender" id="male">
+    Female : <input type="radio" value="F" name="gender" id="Female">
+	</td>
+
+
+	</tr>
+
+	<tr><td>PROJECT</td> : <td><select  name ="project">
+  <option value="Project 1" id="pr1">Project 1</option>
+  <option  value="Project 2" id="pr2">Project 2</option>
+    <option  value="Project 3" id="pr3">Project 3</option>
+  <option  value="Project 4" id="pr4">Project 4</option>
+  <option value="Project 5" id="pr5">Project 5</option>
+  </select></td></tr>
+
+<tr><td></td><td>
+
+    <button onclick="register()">REGISTER</button>
+
+    </td></tr>
+  </td></tr>
+
+	</table>
+	    <script type="text/javascript">
+
+function register()
+{
+  var name=document.getElementById("lastname").value;
+  var project=document.getElementById("project").value;
+  alert("Welcome " + $name + " You have successfully registered for the project " + $project);
+  document.forms["form1"].submit();
+
+
+}
+
+</script>
+</div>
+</form>
+</body>
+</html>

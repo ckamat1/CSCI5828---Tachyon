@@ -1,0 +1,28 @@
+input {
+  height:41px;
+  font-size:21pt;
+   }
+   button {
+  height:41px;
+  font-size:21pt;
+
+  }
+  input:hover
+  {
+  border:1px solid #999;
+  border-radius:6px;
+  color:red;
+  }
+  body {
+    background: white url('/static/dlcapp/images/uc.jpg') no-repeat right bottom;
+}
+#about
+{
+font-size:40px;
+background-color:white;
+width : 960px;
+height : 500px;
+opacity : 0.9;
+margin: 100px auto  auto;
+font-size:20;
+}
