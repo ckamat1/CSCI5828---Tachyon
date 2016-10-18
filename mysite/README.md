@@ -10,11 +10,11 @@ Instructions on deploying this on your local machine :
 Now you have cloned the repo and started working on it, make your changes ( html, python etc) , test those in your local machines and commit the code to git immedately.     
 To commit the code :    
 If it is a new file/folder added :    
-    git add <file/folder>    
-    git commit -m "<message>" <file/folder>    
+    git add file/folder   
+    git commit -m "message" file/folder 
     git push origin master    
 If it is a modification to existing file    
-    git commit -m "<message>" <file>    
+    git commit -m "message" file
     git push origin master    
 
 So by doing this we make sure that whoever clones or downloads this repo, should be able to deploy it with minimal changes.     
