@@ -1,38 +1,23 @@
 {% load static %}
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>
             Discovery Learning
         </title>
-        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'dlcapp/style.css' %}" type="text/css">
     </head>
     <body>
         <marquee><h1>Welcome to discovery learning apprenticeship</h1></marquee>
         <div class="container-fluid" align="center" style="line-height: 50px" >
-            <form method="get" action="/faculty/">
-                <div class="row">
-                <div class="col-lg-12">Please choose one of the options below to proceed</div>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="radiobutton" id="1" value="optradio1" checked>Faculty form</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="radiobutton" id="2" value="optradio2">Student form</label>
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-            </a>
+            <form method="get">
+                <div id="about1"><label>Click on one of the buttons below</label><br>
+                    <button formaction="/faculty/">Faculty</button><br>
+                    <button formaction="/home/">Student</button><br>
+                </div>
+            <!--<a href="faculty.html" target ="_parent">Faculty form</a><br>-->
+            <!--<a href="Student.html" target="_parent">Student form</a>-->
             </form>
-
         </div>
     </body>
-
-
-
-
-
-
-
-
 </html>
