@@ -79,7 +79,7 @@
                 <p class="FacultyContact"><label for="contact">Contact number:</label><input id="PostdocContact" name="contact" placeholder="Numbers only" tabindex="1" type="text'"></p>
                 <p class="FacultyEmail"><label for="email">Faculty email address:</label><input id="postdocEmail" name="email" placeholder="example@domain.com" tabindex="1" type
             </div>
-            <div class="Apprenticeship info"><label for="apprentice"><strong>Apprentice Information</strong></label></div>
+            <div class="Apprenticeship info"><label for="apprentice"><strong>Apprentice Information</strong></label>
             <p class="description"><label for="description">A title/description for the apprenticeship:
 (This is what students will see in the application, may not exceed 80 characters)</label></p>
             <textarea rows="4" cols="55" name="description" id="description"></textarea>
@@ -127,21 +127,25 @@
             <input type="radio">No prior work; student will be starting from basic idea<br>
             <input type="radio">Some prior work; student will build on work of others<br>
             <input type="radio">Well-established body of work; student will refine/improved upon efforts of others<br>
-            <input type="radio">Nature of work is primarily computer-related, involving coding/analysis<br>
-            <input type="radio">other, specify:<br>
             <input type="radio">other, specify:<br>
             <input type="text">
-
-
-
-
-
-
-
-        </form>
+            <p><label>Name of specific student desired: (if any) – be sure to ask them to apply!</label></p>
+            <input type="text" name="student" id="student">
+            </div>
+            <div class="Finances"><label for="finances"><strong>Finances</strong>
+                <p><label>What speed type will you use for your 50% match of the funding? (should be in the form XXXXXXXX, all numbers)</label></p>
+                <input type="text"> or <input type="checkbox"> Not sure
+                <p><label>Accounting contact for your project:</label></p>
+                <input name="account" id="account" type="text"><br>
+            </div>
+            <div class="Other"><label for="Other"><strong>Other</strong></label>
+                <p><label>Have you supervised a Discovery Learning Apprentice in the past?<br>
+(this question intended for the faculty supervisor, not the graduate student or post-doc)</label></p>
+                <input name="radiobutton" id="radiobutton1" type="radio">Yes
+                <input name="radiobutton" id="radiobutton2" type="radio">No
+            </div>
+            </form>
     </div>
-
-
 </div>
 
 </body>
