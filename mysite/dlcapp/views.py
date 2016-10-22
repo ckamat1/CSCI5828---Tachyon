@@ -120,9 +120,9 @@ def printdata(request):
 
 
 def addProject(request):
-    NULL = "NULL"
+    NULL = ""
     name=request.GET.get('name','')
-    print name
+    
     contact_number=request.GET.get('contact','')
     email=request.GET.get('email','')
 
@@ -136,6 +136,7 @@ def addProject(request):
     GS_phone=request.GET.get('contact3','')
     GS_email=request.GET.get('email3','')
     title=request.GET.get('description','')
+    print title
     website=request.GET.get('website','')
     special_requirements=request.GET.get('special_requirements','')
     long_desc=request.GET.get('long_desc','')
@@ -151,11 +152,11 @@ def addProject(request):
 
     db = MySQLdb.connect(MYSQL_IP,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE)
     cursor = db.cursor()
-    command="""insert into project values(' """ + NULL + """ ',' """ + name + """ ',' """ + contact_number + """',' """ + email + """',' """ + dept + """',' """ + EDC_focus + """',' """ + S_faculty_name + """',' """ + S_faculty_phone + """',' """ + S_faculty_email + """',' """ + GS_name + """',' """ + GS_phone + """',' """ + GS_email + """',' """ + S_faculty_dept + """',' """ + title + """',' """ + website + """',' """ + special_requirements + """',' """ + long_desc + """',' """ + specialization + """',' """ + supervision + """',' """ + supervision_by + """',' """ + Nature + """',' """ + prior_work + """',' """ + student_desired + """',' """ + finances + """',' """ + account + """',' """ + past_DLC + """');"""
+    command="""insert into project values(' """ + name + """ ',' """ + contact_number + """',' """ + email + """',' """ + dept + """',' """ + EDC_focus + """',' """ + S_faculty_name + """',' """ + S_faculty_phone + """',' """ + S_faculty_email + """',' """ + GS_name + """',' """ + GS_phone + """',' """ + GS_email + """',' """ + S_faculty_dept + """',' """ + title + """',' """ + website + """',' """ + special_requirements + """',' """ + long_desc + """',' """ + specialization + """',' """ + supervision + """',' """ + supervision_by + """',' """ + Nature + """',' """ + prior_work + """',' """ + student_desired + """',' """ + finances + """',' """ + account + """',' """ + past_DLC + """');"""
     cursor.execute(command)
     db.commit()
 
-    command="""select faculty_name,title,description from project"""
+    command="""select * from project"""
     cursor.execute(command)
     row = cursor.fetchone()
     response="<html><center><h1>RECORDS IN DATABASE</h1></center><table border=\"1px\" align=\"center\">"
@@ -163,6 +164,7 @@ def addProject(request):
     <td>faculty name</td>
     
     <td>title</td>
+    <td>long description</td>
     </thead>"""
     while row is not None:
         response+="<tr>"
