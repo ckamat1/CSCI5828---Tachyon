@@ -2,9 +2,147 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Faculty form</title>
+    <title>Discovery Learning Apprenticeship Faculty form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="{% static 'dlcapp/css/faculty.css' %}">
 </head>
 <body>
+<div class="container">
+    <div class="DLA-top">
+                <a href="http:\\localhost:8000" target="_self">Home</a>
+    </div><!--/ DLA top bar -->
+    <header>
+        <h1>
+            Discovery Learning Apprenticeship Submission
+        </h1>
+    </header>
+    <div class="form">
+        <form id = "facultyform">
+            <div class="Memberinfo"><label for="MemberInfo"><strong>Faculty Member Info</strong></label>
+            <p class="FacultyName"><label for="name">Faculty Name:</label><input id="name" name="name" placeholder="First and last name" required="" tabindex="1" type="text"></p>
+            <p class="FacultyContact"><label for="contact">Contact number:</label><input id="contact" name="contact" placeholder="Numbers only" required="" tabindex="1" type="text'"></p>
+            <p class="FacultyEmail"><label for="email">Faculty email address:</label><input id="email" name="email" placeholder="example@domain.com" required="" tabindex="1" type="text'"></p>
+            <p class="FacultyDept"><label for="dept">Faculty department/program:</label>
+                  <label class="major">
+                  <select class="select-style" name="major" required="" >
+                 	<option selected="selected" value="0">Please Select</option>
+					<option value="ASEN">Aerospace Engineering</option>
+					<option value="AMEN">Applied Mathematics</option>
+					<option value="AREN">Architectural Engineering</option>
+					<option value="CHEN">Chemical Engineering</option>
+					<option value="CBEN">Chemical and Biological Engineering</option>
+					<option value="CVEN">Civil Engineering</option>
+					<option value="CSEN">Computer Science</option>
+					<option value="EEEN">Electrical Engineering</option>
+					<option value="ECEN">Electrical and Computer Engineering</option>
+					<option value="EPEN">Engineering Physics</option>
+					<option value="EVEN">Environmental Engineering</option>
+					<option value="GEEN">Engineering Plus</option>
+					<option value="MCEN">Mechanical Engineering</option>
+					<option value="TMEN">Technology, Arts, and Media</option>
+                 </select>
+                 </label>
+            </p>
+            <p class="DevComm"><label for="dev">Does this project have a focus on Engineering for Developing Communities?</label>
+                <input type="radio" name="radiobutton" id="1" value="optradio1" checked>Yes
+                <input type="radio" name="radiobutton" id="2" value="optradio2">No
+            </p>
+            </div>
+            <div class="Member2"><label for="MemberInfo"><strong>Second Faculty Member(optional)</strong></label>
+                <p class="FacultyName"><label for="name">Faculty Name:</label><input id="name2" name="name" placeholder="First and last name" tabindex="1" type="text"></p>
+                <p class="FacultyContact"><label for="contact">Contact number:</label><input id="contact2" name="contact" placeholder="Numbers only" tabindex="1" type="text'"></p>
+                <p class="FacultyEmail"><label for="email">Faculty email address:</label><input id="email2" name="email" placeholder="example@domain.com" tabindex="1" type="text'"></p>
+                <p class="FacultyDept"><label for="dept">Faculty department/program:</label>
+                  <label class="major">
+                  <select class="select-style" name="major">
+                 	<option selected="selected" value="0">Please Select</option>
+					<option value="ASEN">Aerospace Engineering</option>
+					<option value="AMEN">Applied Mathematics</option>
+					<option value="AREN">Architectural Engineering</option>
+					<option value="CHEN">Chemical Engineering</option>
+					<option value="CBEN">Chemical and Biological Engineering</option>
+					<option value="CVEN">Civil Engineering</option>
+					<option value="CSEN">Computer Science</option>
+					<option value="EEEN">Electrical Engineering</option>
+					<option value="ECEN">Electrical and Computer Engineering</option>
+					<option value="EPEN">Engineering Physics</option>
+					<option value="EVEN">Environmental Engineering</option>
+					<option value="GEEN">Engineering Plus</option>
+					<option value="MCEN">Mechanical Engineering</option>
+					<option value="TMEN">Technology, Arts, and Media</option>
+                 </select>
+                 </label>
+            </p>
+            </div>
+            <div class="PostDoc"><label for="MemberInfo"><strong>Grad Student/Post Doc Info (Optional)</strong></label>
+                <p class="PostDocName"><label for="name">Faculty Name:</label><input id="postdocName" name="name" placeholder="First and last name" tabindex="1" type="text"></p>
+                <p class="FacultyContact"><label for="contact">Contact number:</label><input id="PostdocContact" name="contact" placeholder="Numbers only" tabindex="1" type="text'"></p>
+                <p class="FacultyEmail"><label for="email">Faculty email address:</label><input id="postdocEmail" name="email" placeholder="example@domain.com" tabindex="1" type
+            </div>
+            <div class="Apprenticeship info"><label for="apprentice"><strong>Apprentice Information</strong></label></div>
+            <p class="description"><label for="description">A title/description for the apprenticeship:
+(This is what students will see in the application, may not exceed 80 characters)</label></p>
+            <textarea rows="4" cols="55" name="description" id="description"></textarea>
+            <p class="website"><label for="website">A website link related to your apprenticeship that would provide more information to interested students?</label></p>
+            <input name="website" id="website" type="text">
+            <p class="description"><label for="description">Special Requirements that applicants must meet?<br>
+(eg: Must have had certain course, certain class standing, available to work in 2 5-hour blocks, etc.)<br>
+(may not exceed 1000 characters)</label></p>
+            <textarea rows="4" cols="55" name="special_requirements" id="special_requirements"></textarea>
+            <p class="long_desc"><label for="description">A longer description of the apprenticeship:<br>
+(may not exceed 1200 characters)</label></p>
+            <textarea rows="4" cols="70" name="long_desc" id="long_desc"></textarea>
+            <p class="specialization_choice"><label for="specialization">From what areas do you wish to recruit students?(check all that apply)</label></p>
+            <input id="ASEN" name="=ASEN" type="checkbox">Aerospace Engineering <br>
+            <input id="EEEN" name="=EEEN" type="checkbox">Electrical Engineering <br>
+            <input id="AMEN" name="=AMEN" type="checkbox">Applied Mathematics <br>
+            <input id="ECEN" name="=ECEN" type="checkbox">Electrical and Computer Engineering <br>
+            <input id="AREN" name="=AREN" type="checkbox">Architectural Engineering <br>
+            <input id="EPEN" name="=EPEN" type="checkbox">Engineering Physics <br>
+            <input id="CHEN" name="=CHEN" type="checkbox">Chemical Engineering <br>
+            <input id="EVEN" name="=EVEN" type="checkbox">Environmental Engineering <br>
+            <input id="CBEN" name="=CBEN" type="checkbox">Chemical and Biological Engineering <br>
+            <input id="GEEN" name="=GEEN" type="checkbox">Engineering Plus <br>
+            <input id="CVEN" name="=CVEN" type="checkbox">Civil Engineering <br>
+            <input id="MCEN" name="=MCEN" type="checkbox">Mechanical Engineering <br>
+            <input id="CSEN" name="=CSEN" type="checkbox">Computer Science <br>
+            <input id="TMEN" name="=TMEN" type="checkbox">Technology, Arts, and Media <br>
+            <p><label>Amount of supervision required/interaction available:</label></p>
+            <input type="radio">Very little supervision; student will need to work largely independently<br>
+            <input type="radio">Moderate amount of supervision and interaction with others<br>
+            <input type="radio">Good deal of supervision; student will work as an integral part of a research team<br>
+            <p><label>Supervision provided by:</label></p>
+            <input type="radio">Supervision primarily by faculty supervisor<br>
+            <input type="radio">Supervision primarily by graduate students<br>
+            <input type="radio">Supervision primarily a combination of faculty and graduate students<br>
+            <p><label>Nature of work:</label></p>
+            <input type="radio">Nature of work is primarily theoretical, most work on paper/electronic medium<br>
+            <input type="radio">Nature of work is primarily experimental, requiring hands-on work in a lab<br>
+            <input type="radio">Nature of work is primarily field based, requiring hands-on work in the field<br>
+            <input type="radio">Nature of work is primarily computer-related, involving coding/analysis<br>
+            <input type="radio">Nature of work is a combination of several types of work<br>
+            <input type="radio">other, specify:<br>
+            <input type="text">
+            <p><label>Amount of prior work conducted in association with this project:</label></p>
+            <input type="radio">No prior work; student will be starting from basic idea<br>
+            <input type="radio">Some prior work; student will build on work of others<br>
+            <input type="radio">Well-established body of work; student will refine/improved upon efforts of others<br>
+            <input type="radio">Nature of work is primarily computer-related, involving coding/analysis<br>
+            <input type="radio">other, specify:<br>
+            <input type="radio">other, specify:<br>
+            <input type="text">
+
+
+
+
+
+
+
+        </form>
+    </div>
+
+
+</div>
 
 </body>
 </html>
