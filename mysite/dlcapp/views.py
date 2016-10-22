@@ -136,7 +136,6 @@ def addProject(request):
     GS_phone=request.GET.get('contact3','')
     GS_email=request.GET.get('email3','')
     title=request.GET.get('description','')
-    print title
     website=request.GET.get('website','')
     special_requirements=request.GET.get('special_requirements','')
     long_desc=request.GET.get('long_desc','')
@@ -159,7 +158,18 @@ def addProject(request):
     command="""select * from project"""
     cursor.execute(command)
     row = cursor.fetchone()
-    response="<html><center><h1>RECORDS IN DATABASE</h1></center><table border=\"1px\" align=\"center\">"
+    response="<html><center><h1>Thanks for response</h1></center><table border=\"1px\" align=\"center\">"
+    
+    return HttpResponse(response)
+
+def listOfProjects(request):
+
+    db = MySQLdb.connect(MYSQL_IP,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE)
+    cursor = db.cursor()
+    command="""select * from project"""
+    cursor.execute(command)
+    row = cursor.fetchone()
+    response="<html><center><h1>PROJECTS IN DATABASE</h1></center><table border=\"1px\" align=\"center\">"
     response+=""" <thead>
     <td>faculty name</td>
     
