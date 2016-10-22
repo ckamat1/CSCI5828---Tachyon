@@ -2,9 +2,11 @@ input {
   height:41px;
   font-size:21pt;
    }
-   button {
-  height:41px;
-  font-size:21pt;
+button {
+  height:30px;
+  font-size:15pt;
+  width: 25%;
+  margin-bottom: 10px
 
   }
   input:hover
@@ -14,15 +16,26 @@ input {
   color:red;
   }
   body {
-    background: white url('/static/dlcapp/images/uc.jpg') no-repeat right bottom;
+    background: white url('/static/dlcapp/images/uc.jpg') no-repeat;
 }
 #about
 {
 font-size:40px;
 background-color:white;
-width : 960px;
-height : 500px;
+width : 400px;
+height : 400px;
 opacity : 0.9;
 margin: 100px auto  auto;
 font-size:20;
 }
+
+#about1
+{
+font-size: 20px;
+background-color:white;
+opacity: 0.9;
+margin: 100px;
+width: 400px;
+height: 200px;
+}
+
