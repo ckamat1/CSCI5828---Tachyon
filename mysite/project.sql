@@ -330,10 +330,11 @@ DROP TABLE IF EXISTS `faculty`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `faculty` (
-  `facultyID` varchar(60) DEFAULT NULL,
+  `facultyID` varchar(60) NOT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `email` varchar(40) DEFAULT NULL,
-  `department` varchar(40) DEFAULT NULL
+  `department` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`facultyID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -354,10 +355,19 @@ DROP TABLE IF EXISTS `project`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `project` (
-  `projectID` varchar(10) DEFAULT NULL,
-  `faculty_id` varchar(60) DEFAULT NULL,
-  `sec_faculty_id` varchar(60) DEFAULT NULL,
-  `grad_student_id` varchar(60) DEFAULT NULL,
+  `projectID` varchar(10) NOT NULL,
+  `faculty_name` varchar(60) DEFAULT NULL,
+  `faculty_phone` varchar(60) DEFAULT NULL,
+  `faculty_email` varchar(60) DEFAULT NULL,
+  `faculty_dept` varchar(60) DEFAULT NULL,
+  `EDC_focus` varchar(2) DEFAULT NULL,
+  `sec_faculty_name` varchar(60) DEFAULT NULL,
+  `sec_faculty_phone` varchar(20) DEFAULT NULL,
+  `sec_faculty_email` varchar(20) DEFAULT NULL,
+  `grad_student_name` varchar(20) DEFAULT NULL,
+  `grad_student_number` varchar(20) DEFAULT NULL,
+  `grad_student_email` varchar(20) DEFAULT NULL,
+  `sec_faculty_dept` varchar(20) DEFAULT NULL,
   `title` varchar(100) DEFAULT NULL,
   `url_link` varchar(200) DEFAULT NULL,
   `special_req` varchar(1500) DEFAULT NULL,
@@ -370,7 +380,8 @@ CREATE TABLE `project` (
   `desired_studend_id` varchar(200) DEFAULT NULL,
   `speed_type` varchar(200) DEFAULT NULL,
   `accounting_contact` varchar(50) DEFAULT NULL,
-  `previous_DLC_exp` varchar(2) DEFAULT NULL
+  `previous_DLC_exp` varchar(2) DEFAULT NULL,
+  PRIMARY KEY (`projectID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -452,7 +463,7 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (' M ',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `student` VALUES (' M ',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(' male ',' 123456789 ',' sss',' Yes',' Black or African-American',' 12344',' ddd',' ss@de.com',' rwrw',' 222',' AREN',' 0',' 1.2',' select',' 2017',' 1',' 1',' Proj1',' Proj2',' Proj3',' Proj4',' Proj5',' 1',' 1',' 2222',' ',' ',' ',' ',' ');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -465,4 +476,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-21  0:01:41
+-- Dump completed on 2016-10-21 22:38:27
