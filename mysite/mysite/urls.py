@@ -15,4 +15,5 @@ urlpatterns = [url(r'^register/', views.register, name='register'),
                url(r'^admin/', include(admin.site.urls)),
 		url(r'^faculty/',views.faculty,name='faculty'),
 		url(r'^home/',views.home,name='student'),
+		url(r'^addProject/',views.addProject,name='addProject'),
 ]
