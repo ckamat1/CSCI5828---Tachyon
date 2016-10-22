@@ -7,7 +7,7 @@ import MySQLdb
 from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import render
-from .forms import ContactForm
+
 
 
 MYSQL_IP = "127.0.0.1"
@@ -29,7 +29,6 @@ def faculty(request):
 
 def register(request):
     name=request.GET.get('name','')
-    print name
     gender=request.GET.get('gender','')
     email = request.GET.get('email','')    
     etnonym = request.GET.get('origin','')    
@@ -120,20 +119,21 @@ def printdata(request):
     return HttpResponse(response)
 
 
-def contact(request):
-    form_class = ContactForm
-    
-    if request.method == 'POST':
-        form = form_class(data=request.POST)
+def addProject(request):
+    name=request.GET.get('name','')
+    contact_number=request.GET.get('contact','')
+    email=request.GET.get('email','')
 
-    if form.is_valid():
-            contact_name = request.POST.get(
-                'contact_name'
-            , '')
-            contact_email = request.POST.get(
-                'contact_email'
-            , '')
-    print contact_name
-    return render(request, 'contact.html', {
-        'form': form_class,
-    })
+    dept=request.GET.get('major','')
+    name=request.GET.get('radiobutton','')
+    name=request.GET.get('name','')
+    name=request.GET.get('name','')
+    name=request.GET.get('name','')
+    name=request.GET.get('name','')
+    name=request.GET.get('name','')
+    name=request.GET.get('name','')
+    name=request.GET.get('name','')
+    name=request.GET.get('name','')
+    name=request.GET.get('name','')
+
+    
