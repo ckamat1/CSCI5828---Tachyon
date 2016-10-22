@@ -5,7 +5,7 @@
 #     return HttpResponse('This is simple page')
 import MySQLdb
 from datetime import datetime
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
 
 
@@ -158,23 +158,31 @@ def addProject(request):
     command="""select * from project"""
     cursor.execute(command)
     row = cursor.fetchone()
-    response="<html><center><h1>Thanks for response</h1></center><table border=\"1px\" align=\"center\">"
+    #response="<html><center><h1>Thanks for response</h1></center><table border=\"1px\" align=\"center\">"
     
-    return HttpResponse(response)
+    return HttpResponseRedirect('/listOfProjects/')
 
 def listOfProjects(request):
 
     db = MySQLdb.connect(MYSQL_IP,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE)
     cursor = db.cursor()
-    command="""select * from project"""
+    command="""select faculty_name,faculty_phone,faculty_email,faculty_dept,title,url_link,special_req,long_description,depts_applicable,amount_of_supervision,supervision_by,nature_of_work from project"""
     cursor.execute(command)
     row = cursor.fetchone()
     response="<html><center><h1>PROJECTS IN DATABASE</h1></center><table border=\"1px\" align=\"center\">"
     response+=""" <thead>
     <td>faculty name</td>
-    
-    <td>title</td>
-    <td>long description</td>
+   <td>faculty phone</td>
+   <td>faculty email</td>
+   <td>faculty department</td>
+   <td>project title</td>nature_of_work
+   <td>project link</td>
+   <td>project requirments</td>
+   <td>project description</td>
+   <td>departments offered</td>
+   <td>supervision</td>
+   <td>supervision_by</td>
+   <td>nature of work</td>   
     </thead>"""
     while row is not None:
         response+="<tr>"
