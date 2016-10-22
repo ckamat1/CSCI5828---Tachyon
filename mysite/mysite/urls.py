@@ -12,4 +12,7 @@ urlpatterns = [url(r'^register/', views.register, name='register'),
                # url(r'^$',views.home, name='home'),
                # url(r'^faculty/', TemplateView.as_view(template_name='faculty.html'),
                #        name='faculty'),
-               url(r'^admin/', include(admin.site.urls))]
+               url(r'^admin/', include(admin.site.urls)),
+		url(r'^faculty/',views.faculty,name='faculty'),
+		url(r'^home/',views.home,name='student'),
+]
