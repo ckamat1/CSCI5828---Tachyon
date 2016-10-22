@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+{% load static %}
 <html>
 <head>
 <title>Discovery Learning Apprenticeship Student Application</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-    <link rel="stylesheet" type="text/css" href="C:\Users\PRATIMA\Desktop\html5-registration\html5-registration-form\style.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="C:\Users\PRATIMA\Desktop\html5-registration\html5-registration-form\demo.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{% static 'dlcapp/style.css' %}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{% static 'dlcapp/demo.css' %}" media="all" />
 </head>
 
 <body>
@@ -26,7 +26,7 @@
             </header>       
       
 	<div  class="form">
-    	<form id="contactform"> 
+    	<form id="contactform" name="form" method="GET" action="/register/"> 
 				<p class="FormMain"><label for="Demo"><strong>Demographic Information</strong></label></p>
 				
     			<p class="contact"><label for="name">Name</label></p> 
@@ -40,48 +40,46 @@
 				<input id="gender" type="radio" name="gender" value="female" required="" >   Female<br>
                 
 				<p class="contact"><label for="Origin">Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, <br> South or Central American, or Spanish Origin?</label></p>
-				<input id="origin" type="radio" name="origin" value="male" tabindex="1" > Yes <br>	
-				<input id="origin" type="radio" name="origin" value="female"> No <br>
-				<input id="origin" type="radio" name="origin" value="female"> I do not wish to share the information<br>
+				<input id="origin" type="radio" name="origin" value="Yes" tabindex="1" > Yes <br>	
+				<input id="origin" type="radio" name="origin" value="No"> No <br>
+				<input id="origin" type="radio" name="origin" value="na"> I do not wish to share the information<br>
 				
 				<p class="contact"><label for="race">Please check your race (select all that apply):</label></p>
-				<input id="check0" type="checkbox" name="check0" /> American Indian or Alaskan Native<br>
-				<input id="check1" type="checkbox" name="check1" /> Black or African-American<br>
-				<input id="check2" type="checkbox" name="check2" /> Native Hawaiian or other Pacific Islander<br>
-				<input id="check3" type="checkbox" name="check3" /> Asian<br>
-				<input id="check4" type="checkbox" name="check4" /> White<br>
-				<input id="check5" type="checkbox" name="check5" /> Other<br>
-				<input id="check6" type="checkbox" name="check6" /> Do Not Wish to Provide<br><br>
+				<input id="check0" type="checkbox" name="race" value="American Indian or Alaskan Native" /> American Indian or Alaskan Native<br>
+				<input id="check1" type="checkbox" name="race" value="Black or African-American" /> Black or African-American<br>
+				<input id="check2" type="checkbox" name="race" value="Native Hawaiian" /> Native Hawaiian or other Pacific Islander<br>
+				<input id="check3" type="checkbox" name="race" value="Asian" /> Asian<br>
+				<input id="check4" type="checkbox" name="race" value="White" /> White<br>
+				<input id="check5" type="checkbox" name="race" value="Other" /> Other<br>
+				<input id="check6" type="checkbox" name="race" value="na" /> Do Not Wish to Provide<br><br>
 
 				<p class="contact"><label for="Baddress">Boulder Information</label></p>
 				
 				<p class="contact"><label for="Baddress">Boulder Address</label></p>
-				<textarea rows="2" cols="55" input id="address" name="address" id="address" placeholder="Address" required="" ></textarea>
+				<textarea rows="2" cols="55" input id="Baddress" name="Baddress" id="Baddress" placeholder="Address" required="" ></textarea>
 				
 				<p class="contact"><label for="phone">Mobile phone</label></p>	
-				<input id="phone" name="phone" placeholder="phone number" required="" type="text"> <br><br>
+				<input id="Bphone" name="Bphone" placeholder="phone number" required="" type="text"> <br><br>
 				
-				<p class="contact"><label for="Baddress">Summer Information</label></p>
+				<p class="contact"><label for="Saddress">Summer Information</label></p>
 				
-				<p class="contact"><label for="Baddress">Summer Address</label></p>
-				<textarea rows="2" cols="55" input id="address" name="address" id="address" placeholder="Address"></textarea><br>
+				<p class="contact"><label for="Saddress">Summer Address</label></p>
+				<textarea rows="2" cols="55" input id="Saddress" name="Saddress" id="Saddress" placeholder="Address"></textarea><br>
 				
 				<p class="contact"><label for="phone">Summer phone</label></p>
-				<input id="phone" name="phone" placeholder="phone number" type="text"> <br>
+				<input id="Sphone" name="Sphone" placeholder="phone number" type="text"> <br>
 				
-                <p class="contact"><label for="username">Summer email</label></p> 
-    			<input id="email" name="email" placeholder="example@domain.com" type="email"> <br><br>
-				
+                <			
 				<p class="acad"><label for="Baddress">Academic Information</label></p>
 				<p class="acad">Please carefully enter your academic information.<br> Indicate which major you plan to enter.</p>
     			 
 				<p class="contact"><label for="studno">Student Number</label></p> 
-    			<input id="Studentno" name="studno" placeholder="#########" required="" type="number"> 
+    			<input id="studno" name="studno" placeholder="#########" required="" type="number"> 
 				
 				<fieldset>
                  <label>Primary major </label>
                   <label class="major"> 
-                  <select class="select-style" name="major" required="" >
+                  <select class="select-style" name="Pmajor" required="" >
                  	<option selected="selected" value="0">Please Select</option>
 					<option value="ASEN">Aerospace Engineering</option>
 					<option value="AMEN">Applied Mathematics</option>
@@ -105,7 +103,7 @@
                  <label>Secondary major </label>
 				 <span style="font-size: 10pt">(Only if you have a <strong>double major</strong>)</span><br>
                   <label class="major"> 
-                  <select class="select-style" name="major">
+                  <select class="select-style" name="Smajor">
                  	<option selected="selected" value="0">Please Select</option>
 					<option value="ASEN">Aerospace Engineering</option>
 					<option value="AMEN">Applied Mathematics</option>
@@ -131,7 +129,7 @@
 
 				<label>Level in School as of next fall</label>
                  <label class="Level"> 
-				 <select class="select-style"  name="listGradYear " required="" >
+				 <select class="select-style"  name="levelSchool" required="" >
 					<option value="select">Level </option>
 					<option value="Freshman">Freshman</option>
 					<option value="Sophomore">Sophomore</option>
@@ -167,12 +165,12 @@
 				<input id="dla" type="radio" name="dla" value="female"> Not sure<br> 
 				
 				<p class="contact"><label for="Baddress">Other fall employment planned</label></p>
-				<textarea rows="2" cols="55" input id="address" name="address" id="address" placeholder=""></textarea><br>
+				<textarea rows="2" cols="55" input id="address" name="otherempl" id="address" placeholder=""></textarea><br>
 				
 				<fieldset>
                  <label>Indicate upto five research projects in order of interest </label><br><br>
                   <label class="major"> 
-                  <select class="select-style" name="major">
+                  <select class="select-style" name="project1">
                  	<option selected="selected" value="0" required="">Please Select</option>
 					<option value="Proj1" >Project 1 </option>
 					<option value="Proj2">Project 2</option>
@@ -184,7 +182,7 @@
               </fieldset> <br>
 			  
 			  <label class="major"> 
-                  <select class="select-style" name="major">
+                  <select class="select-style" name="project2">
                  	<option selected="selected" value="0">Please Select</option>
 					<option value="Proj1">Project 1 </option>
 					<option value="Proj2">Project 2</option>
@@ -196,7 +194,7 @@
               </fieldset> <br> <br>
 			  
 			  <label class="major"> 
-                  <select class="select-style" name="major">
+                  <select class="select-style" name="project3">
                  	<option selected="selected" value="0">Please Select</option>
 					<option value="Proj1">Project 1 </option>
 					<option value="Proj2">Project 2</option>
@@ -208,7 +206,7 @@
               </fieldset> <br> 
 			  
 			  <label class="major"> <br>
-                  <select class="select-style" name="major">
+                  <select class="select-style" name="project4">
                  	<option selected="selected" value="0">Please Select</option>
 					<option value="Proj1">Project 1 </option>
 					<option value="Proj2">Project 2</option>
@@ -219,7 +217,7 @@
                  </select>    
               </fieldset><br><br>
 			  <label class="major"> 
-                  <select class="select-style" name="major">
+                  <select class="select-style" name="project5">
                  	<option selected="selected" value="0">Please Select</option>
 					<option value="Proj1">Project 1 </option>
 					<option value="Proj2">Project 2</option>
@@ -233,9 +231,9 @@
 			  
 				 <fieldset>
 				<p class="contact"><label for="check">Have you had a background check yet (at CU)? <br>If yes when? (Take your best guess if you aren't sure.)</label></p>
-				<input id="check" type="radio" name="check" value="male" tabindex="1" > Yes
-				<input id="check" type="radio" name="check" value="female"> No
-				<input id="check" type="radio" name="check" value="female"> Not sure<br> 
+				<input id="check" type="radio" name="backgroundcheck" value="yes" tabindex="1" > Yes
+				<input id="check" type="radio" name="backgroundcheck" value="no"> No
+				<input id="check" type="radio" name="backgroundcheck" value="na"> Not sure<br> 
 				</fieldset>
 				
 				</fieldset>
@@ -264,8 +262,8 @@
 				<input type="file" name="coverletterupload" id="coverletterupload" onclick="Submit_Click" /><br>
 
                     
-            <input class="button" name="submit" id="submit" tabindex="5" value="SUBMIT!" type="submit"> 
-		
+            <input class="button" name="submit" id="submit" tabindex="5"  value="SUBMIT!" type="submit"> 
+ 		
    </form> 
 </div>      
 </div>
