@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Discovery Learning Apprenticeship Faculty form</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
     <link rel="stylesheet" href="{% static 'dlcapp/css/faculty.css' %}">
+	<link rel="stylesheet" type="text/css" href="C:\Users\PRATIMA\Desktop\html5-registration\html5-registration-form\style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="C:\Users\PRATIMA\Desktop\html5-registration\html5-registration-form\demo.css" media="all" />
 </head>
 <body>
 <div class="container">
@@ -13,20 +17,21 @@
     </div><!--/ DLA top bar -->
     <header>
         <h1>
-            Discovery Learning Apprenticeship Submission
+            Discovery Learning Apprenticeship Program - Faculty Submission
         </h1>
     </header>
     <div class="form">
         <form id = "facultyform">
-            <div class="Memberinfo"><label for="MemberInfo"><strong>Faculty Member Info</strong></label>
-            <p class="FacultyName"><label for="name">Faculty Name:</label><input id="name" name="name" placeholder="First and last name" required="" tabindex="1" type="text"></p>
-            <p class="FacultyContact"><label for="contact">Contact number:</label><input id="contact" name="contact" placeholder="Numbers only" required="" tabindex="1" type="text'"></p>
-            <p class="FacultyEmail"><label for="email">Faculty email address:</label><input id="email" name="email" placeholder="example@domain.com" required="" tabindex="1" type="text'"></p>
-            <p class="FacultyDept"><label for="dept">Faculty department/program:</label>
+            <div class="Memberinfo"><label for="MemberInfo"><strong>Faculty Member Info</strong></label><br><br>
+            <p class="FacultyName"><label for="name">* Faculty Name: </label><input id="name" name="name" placeholder="First and last name" required="" tabindex="1" type="text"></p>
+            <p class="FacultyContact"><label for="contact">* Contact number: </label><input id="contact" name="contact" placeholder="Phone Number" required="" tabindex="1" type="number"></p>
+            <p class="FacultyEmail"><label for="email">* Faculty email address:</label><input id="email" name="email" placeholder="example@domain.com" required="" tabindex="1" type="text'"></p>
+            <p class="FacultyDept"><label for="dept">* Faculty department/program:</label><br>
                   <label class="major">
-                  <select class="select-style" name="major" required="" >
-                 	<option selected="selected" value="0">Please Select</option>
-					<option value="ASEN">Aerospace Engineering</option>
+                  <select class="select-style" name="major" required >
+                 <!--	<option selected="selected" value="0" required="">Please Select</option> -->
+					<option value="" >Please Select</option>
+					<option value="ASEN" >Aerospace Engineering</option>
 					<option value="AMEN">Applied Mathematics</option>
 					<option value="AREN">Architectural Engineering</option>
 					<option value="CHEN">Chemical Engineering</option>
@@ -42,20 +47,20 @@
 					<option value="TMEN">Technology, Arts, and Media</option>
                  </select>
                  </label>
-            </p>
+            </p><br>
             <p class="DevComm"><label for="dev">Does this project have a focus on Engineering for Developing Communities?</label>
-                <input type="radio" name="radiobutton" id="1" value="optradio1" checked>Yes
-                <input type="radio" name="radiobutton" id="2" value="optradio2">No
+                <input type="radio" name="radiobutton" id="1" value="Yes">Yes
+                <input type="radio" name="radiobutton" id="2" value="No">No
             </p>
-            </div>
-            <div class="Member2"><label for="MemberInfo"><strong>Second Faculty Member(optional)</strong></label>
+            </div><br>
+            <div class="Member2"><label for="MemberInfo"><strong>Second Faculty Member(optional)</strong></label><br><br>
                 <p class="FacultyName"><label for="name">Faculty Name:</label><input id="name2" name="name" placeholder="First and last name" tabindex="1" type="text"></p>
-                <p class="FacultyContact"><label for="contact">Contact number:</label><input id="contact2" name="contact" placeholder="Numbers only" tabindex="1" type="text'"></p>
+                <p class="FacultyContact"><label for="contact">Contact number:</label><input id="contact2" name="contact" placeholder="Numbers only" tabindex="1" type="number"></p>
                 <p class="FacultyEmail"><label for="email">Faculty email address:</label><input id="email2" name="email" placeholder="example@domain.com" tabindex="1" type="text'"></p>
                 <p class="FacultyDept"><label for="dept">Faculty department/program:</label>
                   <label class="major">
                   <select class="select-style" name="major">
-                 	<option selected="selected" value="0">Please Select</option>
+					<option value="" >Please Select</option>
 					<option value="ASEN">Aerospace Engineering</option>
 					<option value="AMEN">Applied Mathematics</option>
 					<option value="AREN">Architectural Engineering</option>
@@ -73,26 +78,27 @@
                  </select>
                  </label>
             </p>
-            </div>
-            <div class="PostDoc"><label for="MemberInfo"><strong>Grad Student/Post Doc Info (Optional)</strong></label>
+            </div><br><br>
+            <div class="PostDoc"><label for="MemberInfo"><strong>Grad Student/Post Doc Info (Optional)</strong></label><br><br>
                 <p class="PostDocName"><label for="name">Faculty Name:</label><input id="postdocName" name="name" placeholder="First and last name" tabindex="1" type="text"></p>
-                <p class="FacultyContact"><label for="contact">Contact number:</label><input id="PostdocContact" name="contact" placeholder="Numbers only" tabindex="1" type="text'"></p>
-                <p class="FacultyEmail"><label for="email">Faculty email address:</label><input id="postdocEmail" name="email" placeholder="example@domain.com" tabindex="1" type
-            </div>
-            <div class="Apprenticeship info"><label for="apprentice"><strong>Apprentice Information</strong></label>
-            <p class="description"><label for="description">A title/description for the apprenticeship:
-(This is what students will see in the application, may not exceed 80 characters)</label></p>
-            <textarea rows="4" cols="55" name="description" id="description"></textarea>
-            <p class="website"><label for="website">A website link related to your apprenticeship that would provide more information to interested students?</label></p>
+                <p class="FacultyContact"><label for="contact">Contact number:</label><input id="PostdocContact" name="contact" placeholder="Numbers only" tabindex="1" type="number"></p>
+                <p class="FacultyEmail"><label for="email">Faculty email address:</label><input id="postdocEmail" name="email" placeholder="example@domain.com" tabindex="1" type="text" </p>
+            </div> 
+			<br>
+            <div class="Apprenticeship info"><label for="apprentice"><strong>Apprentice Information</strong></label><br><br>
+            <p class="description"><label for="description">* A title/description for the apprenticeship:
+(This is what students will see in the application,<br> may not exceed 80 characters)</label></p>
+            <textarea rows="4" cols="55" name="description" id="description" required=""></textarea>
+            <p class="website"><label for="website">A website link related to your apprenticeship that would provide more information to interested students?</label></p><br>
             <input name="website" id="website" type="text">
             <p class="description"><label for="description">Special Requirements that applicants must meet?<br>
 (eg: Must have had certain course, certain class standing, available to work in 2 5-hour blocks, etc.)<br>
 (may not exceed 1000 characters)</label></p>
             <textarea rows="4" cols="55" name="special_requirements" id="special_requirements"></textarea>
-            <p class="long_desc"><label for="description">A longer description of the apprenticeship:<br>
+            <p class="long_desc"><label for="description" >* A longer description of the apprenticeship:<br>
 (may not exceed 1200 characters)</label></p>
-            <textarea rows="4" cols="70" name="long_desc" id="long_desc"></textarea>
-            <p class="specialization_choice"><label for="specialization">From what areas do you wish to recruit students?(check all that apply)</label></p>
+            <textarea rows="4" cols="70" name="long_desc" id="long_desc" required=""></textarea>
+            <p class="specialization_choice"><label for="specialization">From what areas do you wish to recruit students?(check all that apply)</label></p><br>
             <input id="ASEN" name="=ASEN" type="checkbox">Aerospace Engineering <br>
             <input id="EEEN" name="=EEEN" type="checkbox">Electrical Engineering <br>
             <input id="AMEN" name="=AMEN" type="checkbox">Applied Mathematics <br>
@@ -107,44 +113,53 @@
             <input id="MCEN" name="=MCEN" type="checkbox">Mechanical Engineering <br>
             <input id="CSEN" name="=CSEN" type="checkbox">Computer Science <br>
             <input id="TMEN" name="=TMEN" type="checkbox">Technology, Arts, and Media <br>
-            <p><label>Amount of supervision required/interaction available:</label></p>
-            <input type="radio">Very little supervision; student will need to work largely independently<br>
-            <input type="radio">Moderate amount of supervision and interaction with others<br>
-            <input type="radio">Good deal of supervision; student will work as an integral part of a research team<br>
-            <p><label>Supervision provided by:</label></p>
-            <input type="radio">Supervision primarily by faculty supervisor<br>
-            <input type="radio">Supervision primarily by graduate students<br>
-            <input type="radio">Supervision primarily a combination of faculty and graduate students<br>
-            <p><label>Nature of work:</label></p>
-            <input type="radio">Nature of work is primarily theoretical, most work on paper/electronic medium<br>
-            <input type="radio">Nature of work is primarily experimental, requiring hands-on work in a lab<br>
-            <input type="radio">Nature of work is primarily field based, requiring hands-on work in the field<br>
-            <input type="radio">Nature of work is primarily computer-related, involving coding/analysis<br>
-            <input type="radio">Nature of work is a combination of several types of work<br>
-            <input type="radio">other, specify:<br>
+            <p><label>* Amount of supervision required/interaction available:</label></p><br>
+            <input type="radio" name="sup" value="Very little supervision; student will need to work largely independently" required >Very little supervision; student will need to work largely independently<br>
+            <input type="radio" name="sup" value ="Moderate amount of supervision and interaction with others">Moderate amount of supervision and interaction with others<br>
+            <input type="radio" name="sup" value ="ood deal of supervision; student will work as an integral part of a research team">Good deal of supervision; student will work as an integral part of a research team<br>
+            
+			<p><label>* Supervision provided by:</label></p><br>
+            <input type="radio" name="supv" value ="Supervision primarily by faculty supervisor" required >Supervision primarily by faculty supervisor<br>
+            <input type="radio" name="supv" value ="Supervision primarily by graduate students">Supervision primarily by graduate students<br>
+            <input type="radio" name="supv" value ="Supervision primarily a combination of faculty and graduate students" >Supervision primarily a combination of faculty and graduate students<br>
+            
+			<p><label>* Nature of work:</label></p><br>
+            <input type="radio" name="natw" value ="Nature of work is primarily theoretical, most work on paper/electronic medium" required >Nature of work is primarily theoretical, most work on paper/electronic medium<br>
+            <input type="radio" name="natw" value ="Nature of work is primarily experimental, requiring hands-on work in a lab">Nature of work is primarily experimental, requiring hands-on work in a lab<br>
+            <input type="radio" name="natw" value ="Nature of work is primarily field based, requiring hands-on work in the field">Nature of work is primarily field based, requiring hands-on work in the field<br>
+            <input type="radio" name="natw" value ="Nature of work is primarily computer-related, involving coding/analysis">Nature of work is primarily computer-related, involving coding/analysis<br>
+            <input type="radio" name="natw" value ="Nature of work is a combination of several types of work">Nature of work is a combination of several types of work<br>
+            <input type="radio" name="natw" value ="">other, specify:<br>
             <input type="text">
-            <p><label>Amount of prior work conducted in association with this project:</label></p>
-            <input type="radio">No prior work; student will be starting from basic idea<br>
-            <input type="radio">Some prior work; student will build on work of others<br>
-            <input type="radio">Well-established body of work; student will refine/improved upon efforts of others<br>
-            <input type="radio">other, specify:<br>
+			
+            <p><label>* Amount of prior work conducted in association with this project:</label></p><br>
+            <input type="radio" name="workc" value="No prior work; student will be starting from basic idea" required >No prior work; student will be starting from basic idea<br>
+            <input type="radio" name="workc" value="Some prior work; student will build on work of others">Some prior work; student will build on work of others<br>
+            <input type="radio" name="workc" value="Well-established body of work; student will refine/improved upon efforts of others">Well-established body of work; student will refine/improved upon efforts of others<br>
+            <input type="radio" name="workc"> other, specify:<br>
             <input type="text">
-            <p><label>Name of specific student desired: (if any) – be sure to ask them to apply!</label></p>
+			
+            <p><label>Name of specific student desired: (if any) – be sure to ask them to apply!</label></p><br>
             <input type="text" name="student" id="student">
             </div>
-            <div class="Finances"><label for="finances"><strong>Finances</strong>
-                <p><label>What speed type will you use for your 50% match of the funding? (should be in the form XXXXXXXX, all numbers)</label></p>
-                <input type="text"> or <input type="checkbox"> Not sure
-                <p><label>Accounting contact for your project:</label></p>
-                <input name="account" id="account" type="text"><br>
+            <div class="Finances"><label for="finances"><strong>Finances</strong><br><br>
+                <p><label>* What speed type will you use for your 50% match of the funding? (should be in the form XXXXXXXX, all numbers)</label></p><br>
+                <input type="numbers" required=""> 
+                <p><label>* Accounting contact for your project:</label></p><br>
+                <input name="account" id="account" type="text" required=""><br>
             </div>
-            <div class="Other"><label for="Other"><strong>Other</strong></label>
+            <div class="Other"><label for="Other"><strong>Other</strong></label><br><br>
                 <p><label>Have you supervised a Discovery Learning Apprentice in the past?<br>
-(this question intended for the faculty supervisor, not the graduate student or post-doc)</label></p>
-                <input name="radiobutton" id="radiobutton1" type="radio">Yes
-                <input name="radiobutton" id="radiobutton2" type="radio">No
+(this question intended for the faculty supervisor, not the graduate student or post-doc)</label></p><br>
+                <input name="radiobutton" id="radiobutton1" type="radio" value="Yes" >Yes
+                <input name="radiobutton" id="radiobutton2" type="radio"  value="No" >No
             </div>
+			<br>
+			<input class="button" name="submit" id="submit" tabindex="5" value="SUBMIT!" type="submit">
+			
             </form>
+		
+			
     </div>
 </div>
 
