@@ -120,7 +120,9 @@ def printdata(request):
 
 
 def addProject(request):
+    NULL = "NULL"
     name=request.GET.get('name','')
+    print name
     contact_number=request.GET.get('contact','')
     email=request.GET.get('email','')
 
@@ -137,18 +139,38 @@ def addProject(request):
     website=request.GET.get('website','')
     special_requirements=request.GET.get('special_requirements','')
     long_desc=request.GET.get('long_desc','')
-    specialization=request.GET.get('name','')
-    supervision=request.GET.get('name','')
-    supervision_by=request.GET.get('name','')
-    Nature=request.GET.get('name','')
-    prior_work=request.GET.get('name','')
-    student_desired=request.GET.get('name','')
-    finances=request.GET.get('name','')
-    account=request.GET.get('name','')
-    past_DLC=request.GET.get('name','')
+    specialization=request.GET.get('specialization','')
+    supervision=request.GET.get('sup','')
+    supervision_by=request.GET.get('supv','')
+    Nature=request.GET.get('natw','')
+    prior_work=request.GET.get('workc','')
+    student_desired=request.GET.get('student','')
+    finances=request.GET.get('finances','')
+    account=request.GET.get('account','')
+    past_DLC=request.GET.get('radiobutton2','')
 
     db = MySQLdb.connect(MYSQL_IP,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE)
     cursor = db.cursor()
     command="""insert into project values(' """ + NULL + """ ',' """ + name + """ ',' """ + contact_number + """',' """ + email + """',' """ + dept + """',' """ + EDC_focus + """',' """ + S_faculty_name + """',' """ + S_faculty_phone + """',' """ + S_faculty_email + """',' """ + GS_name + """',' """ + GS_phone + """',' """ + GS_email + """',' """ + S_faculty_dept + """',' """ + title + """',' """ + website + """',' """ + special_requirements + """',' """ + long_desc + """',' """ + specialization + """',' """ + supervision + """',' """ + supervision_by + """',' """ + Nature + """',' """ + prior_work + """',' """ + student_desired + """',' """ + finances + """',' """ + account + """',' """ + past_DLC + """');"""
     cursor.execute(command)
     db.commit()
+
+    command="""select faculty_name,title,description from project"""
+    cursor.execute(command)
+    row = cursor.fetchone()
+    response="<html><center><h1>RECORDS IN DATABASE</h1></center><table border=\"1px\" align=\"center\">"
+    response+=""" <thead>
+    <td>faculty name</td>
+    
+    <td>title</td>
+    </thead>"""
+    while row is not None:
+        response+="<tr>"
+        for a in row:
+         response+="<td>" + str(a) +"</td>"
+
+        response+="</tr>"
+        row = cursor.fetchone()
+
+
+    return HttpResponse(response)

@@ -20,7 +20,7 @@
         </h1>
     </header>
     <div class="form">
-        <form id = "facultyform">
+        <form id = "facultyform" name = "facultyform" method="GET" action="/addProject/">
             <div class="Memberinfo"><label for="MemberInfo"><strong>Faculty Member Info</strong></label><br><br>
             <p class="FacultyName"><label for="name">* Faculty Name: </label><input id="name" name="name" placeholder="First and last name" required="" tabindex="1" type="text"></p>
             <p class="FacultyContact"><label for="contact">* Contact number: </label><input id="contact" name="contact" placeholder="Phone Number" required="" tabindex="1" type="number"></p>
@@ -79,9 +79,9 @@
             </p>
             </div><br><br>
             <div class="PostDoc"><label for="MemberInfo"><strong>Grad Student/Post Doc Info (Optional)</strong></label><br><br>
-                <p class="PostDocName"><label for="name">Faculty Name:</label><input id="postdocName" name="name" placeholder="First and last name" tabindex="1" type="text"></p>
-                <p class="FacultyContact"><label for="contact">Contact number:</label><input id="PostdocContact" name="contact" placeholder="Numbers only" tabindex="1" type="number"></p>
-                <p class="FacultyEmail"><label for="email">Faculty email address:</label><input id="postdocEmail" name="email" placeholder="example@domain.com" tabindex="1" type="text" </p>
+                <p class="PostDocName"><label for="name">Faculty Name:</label><input id="postdocName" name="name3" placeholder="First and last name" tabindex="1" type="text"></p>
+                <p class="FacultyContact"><label for="contact">Contact number:</label><input id="PostdocContact" name="contact3" placeholder="Numbers only" tabindex="1" type="number"></p>
+                <p class="FacultyEmail"><label for="email">Faculty email address:</label><input id="postdocEmail" name="email3" placeholder="example@domain.com" tabindex="1" type="text" </p>
             </div> 
 			<br>
             <div class="Apprenticeship info"><label for="apprentice"><strong>Apprentice Information</strong></label><br><br>
@@ -97,21 +97,21 @@
             <p class="long_desc"><label for="description" >* A longer description of the apprenticeship:<br>
 (may not exceed 1200 characters)</label></p>
             <textarea rows="4" cols="70" name="long_desc" id="long_desc" required=""></textarea>
-            <p class="specialization_choice"><label for="specialization">From what areas do you wish to recruit students?(check all that apply)</label></p><br>
-            <input id="ASEN" name="=ASEN" type="checkbox">Aerospace Engineering <br>
-            <input id="EEEN" name="=EEEN" type="checkbox">Electrical Engineering <br>
-            <input id="AMEN" name="=AMEN" type="checkbox">Applied Mathematics <br>
-            <input id="ECEN" name="=ECEN" type="checkbox">Electrical and Computer Engineering <br>
-            <input id="AREN" name="=AREN" type="checkbox">Architectural Engineering <br>
-            <input id="EPEN" name="=EPEN" type="checkbox">Engineering Physics <br>
-            <input id="CHEN" name="=CHEN" type="checkbox">Chemical Engineering <br>
-            <input id="EVEN" name="=EVEN" type="checkbox">Environmental Engineering <br>
-            <input id="CBEN" name="=CBEN" type="checkbox">Chemical and Biological Engineering <br>
-            <input id="GEEN" name="=GEEN" type="checkbox">Engineering Plus <br>
-            <input id="CVEN" name="=CVEN" type="checkbox">Civil Engineering <br>
-            <input id="MCEN" name="=MCEN" type="checkbox">Mechanical Engineering <br>
-            <input id="CSEN" name="=CSEN" type="checkbox">Computer Science <br>
-            <input id="TMEN" name="=TMEN" type="checkbox">Technology, Arts, and Media <br>
+            <p class="specialization_choice" name="specialization"><label for="specialization">From what areas do you wish to recruit students?(check all that apply)</label></p><br>
+            <input id="ASEN" value="ASEN" type="checkbox">Aerospace Engineering <br>
+            <input id="EEEN" value="EEEN" type="checkbox">Electrical Engineering <br>
+            <input id="AMEN" value="AMEN" type="checkbox">Applied Mathematics <br>
+            <input id="ECEN" value="ECEN" type="checkbox">Electrical and Computer Engineering <br>
+            <input id="AREN" value="AREN" type="checkbox">Architectural Engineering <br>
+            <input id="EPEN" value="EPEN" type="checkbox">Engineering Physics <br>
+            <input id="CHEN" value="CHEN" type="checkbox">Chemical Engineering <br>
+            <input id="EVEN" value="EVEN" type="checkbox">Environmental Engineering <br>
+            <input id="CBEN" value="CBEN" type="checkbox">Chemical and Biological Engineering <br>
+            <input id="GEEN" value="GEEN" type="checkbox">Engineering Plus <br>
+            <input id="CVEN" value="CVEN" type="checkbox">Civil Engineering <br>
+            <input id="MCEN" value="MCEN" type="checkbox">Mechanical Engineering <br>
+            <input id="CSEN" value="CSEN" type="checkbox">Computer Science <br>
+            <input id="TMEN" value="TMEN" type="checkbox">Technology, Arts, and Media <br>
             <p><label>* Amount of supervision required/interaction available:</label></p><br>
             <input type="radio" name="sup" value="Very little supervision; student will need to work largely independently" required >Very little supervision; student will need to work largely independently<br>
             <input type="radio" name="sup" value ="Moderate amount of supervision and interaction with others">Moderate amount of supervision and interaction with others<br>
@@ -143,15 +143,15 @@
             </div>
             <div class="Finances"><label for="finances"><strong>Finances</strong><br><br>
                 <p><label>* What speed type will you use for your 50% match of the funding? (should be in the form XXXXXXXX, all numbers)</label></p><br>
-                <input type="numbers" required=""> 
+                <input type="numbers" name= "finances" required=""> 
                 <p><label>* Accounting contact for your project:</label></p><br>
                 <input name="account" id="account" type="text" required=""><br>
             </div>
             <div class="Other"><label for="Other"><strong>Other</strong></label><br><br>
                 <p><label>Have you supervised a Discovery Learning Apprentice in the past?<br>
 (this question intended for the faculty supervisor, not the graduate student or post-doc)</label></p><br>
-                <input name="radiobutton" id="radiobutton1" type="radio" value="Yes" >Yes
-                <input name="radiobutton" id="radiobutton2" type="radio"  value="No" >No
+                <input name="radiobutton2" id="radiobutton1" type="radio" value="Yes" >Yes
+                <input name="radiobutton2" id="radiobutton2" type="radio"  value="No" >No
             </div>
 			<br>
 			<input class="button" name="submit" id="submit" tabindex="5" value="SUBMIT!" type="submit">
