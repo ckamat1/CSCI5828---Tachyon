@@ -35,7 +35,7 @@ header{
 /* Background Style */
 body{
 	font-family: Cambria, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
-	background:url(images/background.jpg);
+	background:url('/static/dlcapp/images/background.jpg');
 	font-weight: 400;
 	font-size: 15px;
 	color: #3a2127;
