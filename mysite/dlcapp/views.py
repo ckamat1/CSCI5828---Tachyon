@@ -7,6 +7,8 @@ import MySQLdb
 from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import render
+from .forms import ContactForm
+
 
 MYSQL_IP = "127.0.0.1"
 MYSQL_USER = "root"
@@ -14,7 +16,7 @@ MYSQL_PASSWORD = "topspin@123"
 MYSQL_DATABASE = "student"
 
 def home(request):
-    return render(request, 'home.html', {'right_now':datetime.today()})
+    return render(request, 'Student.html', {'right_now':datetime.today()})
 
 def index(request):
     return render(request,'index.html')
@@ -22,11 +24,42 @@ def index(request):
 def Bootstrap(request):
     return render(request,'Bootstrap.html')
 
+def faculty(request):
+    return render(request, "faculty.html")
+
 def register(request):
-    firstname=request.GET.get('firstname','')
-    lastname=request.GET.get('lastname','')
+    name=request.GET.get('name','')
+    print name
     gender=request.GET.get('gender','')
-    project=request.GET.get('project','')
+    email = request.GET.get('email','')    
+    etnonym = request.GET.get('origin','')    
+    race = request.GET.get('race','')    
+    boulder_address = request.GET.get('Baddress','')    
+    boulder_phone = request.GET.get('Bphone','')    
+    summer_address = request.GET.get('Saddress','')    
+    summer_phone = request.GET.get('Sphone','')    
+    student_id = request.GET.get('studno','')    
+    primary_major = request.GET.get('Pmajor','')    
+    secondary_major = request.GET.get('Smajor','')
+    gpa = request.GET.get('GPA','')
+    level = request.GET.get('levelSchool','')
+    graduation_year = request.GET.get('listGradYear','')
+    previous_exp = request.GET.get('exp','')
+    apprentice_info =request.GET.get('dla','')
+    other_employment = request.GET.get('otherempl','')
+    project1 = request.GET.get('project1','')
+    project2 = request.GET.get('project2','')
+    project3 = request.GET.get('project3','')
+    project4 = request.GET.get('project4','')
+    project5 = request.GET.get('project5','')
+    background_check  = request.GET.get('backgroundcheck','')
+    DandH_training = request.GET.get('training','')
+    ssn = request.GET.get('SSN','')
+    writeup1 = request.GET.get('writeup1','')
+    writeup2 = request.GET.get('writeup2','')
+    writeup3 = request.GET.get('writeup3','')
+    resume = request.GET.get('resumeupload','')
+    cover_letter = request.GET.get('coverletterupload','')
 
     db = MySQLdb.connect(MYSQL_IP,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE)
 
@@ -34,7 +67,7 @@ def register(request):
     cursor = db.cursor()
 
 # execute SQL query using execute() method.
-    command="""insert into student values(' """ + firstname + """ ',' """ + lastname + """ ',' """ + gender + """ ',' """ + project + """');"""
+    command="""insert into student values(' """ + gender + """ ',' """ + student_id + """ ',' """ + name + """',' """ + etnonym + """',' """ + race + """',' """ + boulder_phone + """',' """ + boulder_address + """',' """ + email + """',' """ + summer_address + """',' """ + summer_phone + """',' """ + primary_major + """',' """ + secondary_major + """',' """ + gpa + """',' """ + level + """',' """ + graduation_year + """',' """ + previous_exp + """',' """ + apprentice_info + """',' """ + project1 + """',' """ + project2 + """',' """ + project3 + """',' """ + project4 + """',' """ + project5 + """',' """ + background_check + """',' """ + DandH_training + """',' """ + ssn + """',' """ + resume + """',' """ + cover_letter + """',' """ + writeup1 + """',' """ + writeup2 + """',' """ + writeup3 + """');"""
 
     cursor.execute(command)
     db.commit()
@@ -85,3 +118,22 @@ def printdata(request):
 
 
     return HttpResponse(response)
+
+
+def contact(request):
+    form_class = ContactForm
+    
+    if request.method == 'POST':
+        form = form_class(data=request.POST)
+
+    if form.is_valid():
+            contact_name = request.POST.get(
+                'contact_name'
+            , '')
+            contact_email = request.POST.get(
+                'contact_email'
+            , '')
+    print contact_name
+    return render(request, 'contact.html', {
+        'form': form_class,
+    })

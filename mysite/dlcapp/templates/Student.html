@@ -1,0 +1,272 @@
+{% load static %}
+<html>
+<head>
+<title>Discovery Learning Apprenticeship Student Application</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'dlcapp/style.css' %}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{% static 'dlcapp/demo.css' %}" media="all" />
+</head>
+
+<body>
+<div class="container">
+			<!-- DLA top bar -->
+            <div class="DLA-top">
+                <a href="http://www.colorado.edu/activelearningprogram/discovery-learning/discovery-learning-apprenticeship-program" target="_blank">Home</a>
+                <span class="right">
+                    <a href="http://www.colorado.edu/activelearningprogram/discovery-learning/discovery-learning-apprenticeship-program">
+                        <strong>Back to DLA Home</strong>
+                    </a>	
+                </span>
+                <div class="clr"></div>
+            </div><!--/ DLA top bar -->
+			<header>	
+				<h1>Discovery Learning Apprenticeship Program Student Application</h1>
+            </header>       
+      
+	<div  class="form">
+    	<form id="contactform" name="form" method="GET" action="/register/"> 
+				<p class="FormMain"><label for="Demo"><strong>Demographic Information</strong></label></p>
+				
+    			<p class="contact"><label for="name">Name</label></p> 
+    			<input id="name" name="name" placeholder="First and last name" required="" tabindex="1" type="text"> 
+    			 
+    			<p class="contact"><label for="email">Email</label></p> 
+    			<input id="email" name="email" placeholder="example@domain.com" required="" type="email"> 
+				
+				<p class="contact"><label for="gender">Gender</label></p> 
+				<input id="gender" type="radio" name="gender" value="male" tabindex="1" required="" > Male
+				<input id="gender" type="radio" name="gender" value="female" required="" >   Female<br>
+                
+				<p class="contact"><label for="Origin">Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, <br> South or Central American, or Spanish Origin?</label></p>
+				<input id="origin" type="radio" name="origin" value="Yes" tabindex="1" > Yes <br>	
+				<input id="origin" type="radio" name="origin" value="No"> No <br>
+				<input id="origin" type="radio" name="origin" value="na"> I do not wish to share the information<br>
+				
+				<p class="contact"><label for="race">Please check your race (select all that apply):</label></p>
+				<input id="check0" type="checkbox" name="race" value="American Indian or Alaskan Native" /> American Indian or Alaskan Native<br>
+				<input id="check1" type="checkbox" name="race" value="Black or African-American" /> Black or African-American<br>
+				<input id="check2" type="checkbox" name="race" value="Native Hawaiian" /> Native Hawaiian or other Pacific Islander<br>
+				<input id="check3" type="checkbox" name="race" value="Asian" /> Asian<br>
+				<input id="check4" type="checkbox" name="race" value="White" /> White<br>
+				<input id="check5" type="checkbox" name="race" value="Other" /> Other<br>
+				<input id="check6" type="checkbox" name="race" value="na" /> Do Not Wish to Provide<br><br>
+
+				<p class="contact"><label for="Baddress">Boulder Information</label></p>
+				
+				<p class="contact"><label for="Baddress">Boulder Address</label></p>
+				<textarea rows="2" cols="55" input id="Baddress" name="Baddress" id="Baddress" placeholder="Address" required="" ></textarea>
+				
+				<p class="contact"><label for="phone">Mobile phone</label></p>	
+				<input id="Bphone" name="Bphone" placeholder="phone number" required="" type="text"> <br><br>
+				
+				<p class="contact"><label for="Saddress">Summer Information</label></p>
+				
+				<p class="contact"><label for="Saddress">Summer Address</label></p>
+				<textarea rows="2" cols="55" input id="Saddress" name="Saddress" id="Saddress" placeholder="Address"></textarea><br>
+				
+				<p class="contact"><label for="phone">Summer phone</label></p>
+				<input id="Sphone" name="Sphone" placeholder="phone number" type="text"> <br>
+				
+                <			
+				<p class="acad"><label for="Baddress">Academic Information</label></p>
+				<p class="acad">Please carefully enter your academic information.<br> Indicate which major you plan to enter.</p>
+    			 
+				<p class="contact"><label for="studno">Student Number</label></p> 
+    			<input id="studno" name="studno" placeholder="#########" required="" type="number"> 
+				
+				<fieldset>
+                 <label>Primary major </label>
+                  <label class="major"> 
+                  <select class="select-style" name="Pmajor" required="" >
+                 	<option selected="selected" value="0">Please Select</option>
+					<option value="ASEN">Aerospace Engineering</option>
+					<option value="AMEN">Applied Mathematics</option>
+					<option value="AREN">Architectural Engineering</option>
+					<option value="CHEN">Chemical Engineering</option>
+					<option value="CBEN">Chemical and Biological Engineering</option>
+					<option value="CVEN">Civil Engineering</option>
+					<option value="CSEN">Computer Science</option>
+					<option value="EEEN">Electrical Engineering</option>
+					<option value="ECEN">Electrical and Computer Engineering</option>
+					<option value="EPEN">Engineering Physics</option>
+					<option value="EVEN">Environmental Engineering</option>
+					<option value="GEEN">Engineering Plus</option>
+					<option value="MCEN">Mechanical Engineering</option>
+					<option value="TMEN">Technology, Arts, and Media</option>
+                  </label>
+                 </select>    
+              </fieldset><br>
+				 
+				 <fieldset>
+                 <label>Secondary major </label>
+				 <span style="font-size: 10pt">(Only if you have a <strong>double major</strong>)</span><br>
+                  <label class="major"> 
+                  <select class="select-style" name="Smajor">
+                 	<option selected="selected" value="0">Please Select</option>
+					<option value="ASEN">Aerospace Engineering</option>
+					<option value="AMEN">Applied Mathematics</option>
+					<option value="AREN">Architectural Engineering</option>
+					<option value="CHEN">Chemical Engineering</option>
+					<option value="CBEN">Chemical and Biological Engineering</option>
+					<option value="CVEN">Civil Engineering</option>
+					<option value="CSEN">Computer Science</option>
+					<option value="EEEN">Electrical Engineering</option>
+					<option value="ECEN">Electrical and Computer Engineering</option>
+					<option value="EPEN">Engineering Physics</option>
+					<option value="EVEN">Environmental Engineering</option>
+					<option value="GEEN">Engineering Plus</option>
+					<option value="MCEN">Mechanical Engineering</option>
+					<option value="TMEN">Technology, Arts, and Media</option>
+                  </label>
+                 </select>    
+              </fieldset><br>
+			  
+			
+				<label>GPA&nbsp <input class="gpa" maxlength="3" name="GPA" placeholder="0.0" required=""></label>
+                <label>Year <input class="listGradYear" maxlength="4" name="GradYear" placeholder="Year" required=""></label><br>
+
+				<label>Level in School as of next fall</label>
+                 <label class="Level"> 
+				 <select class="select-style"  name="levelSchool" required="" >
+					<option value="select">Level </option>
+					<option value="Freshman">Freshman</option>
+					<option value="Sophomore">Sophomore</option>
+					<option value="Junior">Junior</option>
+					<option value="Senior">Senior</option>
+					<option value="5th year Senior">5th Year Senior</option>
+				</select>
+			<fieldset><br>
+			
+				<label>Graduation Year</label>
+                 <label class="major"> 
+				 <select class="select-style"  name="listGradYear" required="">
+					<option value="select">Year</option>
+					<option value="2016">2016    </option>
+					<option value="2017">2017</option>
+					<option value="2018">2018</option>
+					<option value="2019">2019</option>
+					<option value="2020">2020</option>
+					<option value="2021">2021</option>
+				</select>
+			</fieldset><br><br>
+				 
+				  <p class="contact"><label for="Exp">Do you have previous research experience? </label></p>
+				<input id="exp" type="radio" name="exp" value="1" tabindex="1" > Yes	
+				<input id="exp" type="radio" name="exp" value="0"><label for="Exp"> No </label> <br><br>
+				
+				
+				  <p class="contact"><label for="Exp">Apprentice Information </label></p>
+				  
+				 <p class="contact"><label for="DLA">Have you applied for a Discovery Learning Apprenticeship before?</label></p>
+				<input id="dla" type="radio" name="dla" value="1" tabindex="1" > Yes
+				<input id="dla" type="radio" name="dla" value="0"> No
+				<input id="dla" type="radio" name="dla" value="3"> Not sure<br> 
+				
+				<p class="contact"><label for="Baddress">Other fall employment planned</label></p>
+				<textarea rows="2" cols="55" input id="address" name="otherempl" id="address" placeholder=""></textarea><br>
+				
+				<fieldset>
+                 <label>Indicate upto five research projects in order of interest </label><br><br>
+                  <label class="major"> 
+                  <select class="select-style" name="project1">
+                 	<option selected="selected" value="0" required="">Please Select</option>
+					<option value="Proj1" >Project 1 </option>
+					<option value="Proj2">Project 2</option>
+					<option value="Proj3">Project 3</option>
+					<option value="Proj4">Project 4</option>
+					<option value="Proj5">Project 5</option>									
+                  </label>
+                 </select>    
+              </fieldset> <br>
+			  
+			  <label class="major"> 
+                  <select class="select-style" name="project2">
+                 	<option selected="selected" value="0">Please Select</option>
+					<option value="Proj1">Project 1 </option>
+					<option value="Proj2">Project 2</option>
+					<option value="Proj3">Project 3</option>
+					<option value="Proj4">Project 4</option>
+					<option value="Proj5">Project 5</option>									
+                  </label>
+                 </select>    
+              </fieldset> <br> <br>
+			  
+			  <label class="major"> 
+                  <select class="select-style" name="project3">
+                 	<option selected="selected" value="0">Please Select</option>
+					<option value="Proj1">Project 1 </option>
+					<option value="Proj2">Project 2</option>
+					<option value="Proj3">Project 3</option>
+					<option value="Proj4">Project 4</option>
+					<option value="Proj5">Project 5</option>									
+                  </label>
+                 </select>    
+              </fieldset> <br> 
+			  
+			  <label class="major"> <br>
+                  <select class="select-style" name="project4">
+                 	<option selected="selected" value="0">Please Select</option>
+					<option value="Proj1">Project 1 </option>
+					<option value="Proj2">Project 2</option>
+					<option value="Proj3">Project 3</option>
+					<option value="Proj4">Project 4</option>
+					<option value="Proj5">Project 5</option>									
+                  </label>
+                 </select>    
+              </fieldset><br><br>
+			  <label class="major"> 
+                  <select class="select-style" name="project5">
+                 	<option selected="selected" value="0">Please Select</option>
+					<option value="Proj1">Project 1 </option>
+					<option value="Proj2">Project 2</option>
+					<option value="Proj3">Project 3</option>
+					<option value="Proj4">Project 4</option>
+					<option value="Proj5">Project 5</option>									
+                  </label>
+                 </select>    
+              </fieldset><br> <br>
+			  
+			  
+				 <fieldset>
+				<p class="contact"><label for="check">Have you had a background check yet (at CU)? <br>If yes when? (Take your best guess if you aren't sure.)</label></p>
+				<input id="check" type="radio" name="backgroundcheck" value="yes" tabindex="1" > Yes
+				<input id="check" type="radio" name="backgroundcheck" value="no"> No
+				<input id="check" type="radio" name="backgroundcheck" value="na"> Not sure<br> 
+				</fieldset>
+				
+				</fieldset>
+				 <p class="contact"><label for="training">Have you had Discrimination and Harassment Awareness training yet (at CU)?<br> If yes when? (Take your best guess if you aren't sure.)</label></p>
+				<input id="training" type="radio" name="training" value="yes" tabindex="1" > Yes
+				<input id="training" type="radio" name="training" value="no"> No
+				<input id="training" type="radio" name="training" value="na"> Not sure<br> 
+				 
+				 <label>Last four digits of your SSN&nbsp <input class="gpa" maxlength="4" name="SSN" placeholder="0000" required=""></label>
+				 
+				 <p class="contact"><label for="Origin">Skills resume and cover letter</label></p>
+				 
+				 <p class="contact"><label for="Origin">Please list the three skills or qualifications that you feel make you a great candidate<br> for the positions you selected:
+	(Could be knowledge of a programming language,<br> knowledge of a field, courses taken, personal characteristics, etc. If appropriate,<br> note your match to requirements in job description. <br>Please note responses are limited to 75 characters.)</label></p>
+				 
+                <p class="contact"><label for="writeup">1 </label></p> 
+    			<input type="text" id="writeup1" name="writeup" > 
+                <p class="contact"><label for="writeup2">2</label></p> 
+    			<input type="text" id="writeup2" name="writeup2" > 
+				<p class="contact"><label for="writeup2">3</label></p> 
+    			<input type="text" id="writeup3" name="writeup3" > <br><br>
+				
+				<label>Resume</label>
+				<input type="file" name="resumeupload" id="resumeupload" onclick="Submit_Click" /><br>
+				<label>Cover Letter&nbsp</label>
+				<input type="file" name="coverletterupload" id="coverletterupload" onclick="Submit_Click" /><br>
+
+                    
+            <input class="button" name="submit" id="submit" tabindex="5"  value="SUBMIT!" type="submit"> 
+ 		
+   </form> 
+</div>      
+</div>
+
+</body>
+</html>
