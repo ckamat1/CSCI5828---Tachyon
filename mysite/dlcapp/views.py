@@ -7,7 +7,7 @@ import MySQLdb
 from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import render
-from .forms import ContactForm
+
 
 
 MYSQL_IP = "127.0.0.1"
@@ -29,7 +29,6 @@ def faculty(request):
 
 def register(request):
     name=request.GET.get('name','')
-    print name
     gender=request.GET.get('gender','')
     email = request.GET.get('email','')    
     etnonym = request.GET.get('origin','')    
@@ -120,20 +119,36 @@ def printdata(request):
     return HttpResponse(response)
 
 
-def contact(request):
-    form_class = ContactForm
-    
-    if request.method == 'POST':
-        form = form_class(data=request.POST)
+def addProject(request):
+    name=request.GET.get('name','')
+    contact_number=request.GET.get('contact','')
+    email=request.GET.get('email','')
 
-    if form.is_valid():
-            contact_name = request.POST.get(
-                'contact_name'
-            , '')
-            contact_email = request.POST.get(
-                'contact_email'
-            , '')
-    print contact_name
-    return render(request, 'contact.html', {
-        'form': form_class,
-    })
+    dept=request.GET.get('major','')
+    EDC_focus=request.GET.get('radiobutton','')
+    S_faculty_name=request.GET.get('name2','')
+    S_faculty_phone=request.GET.get('contact2','')
+    S_faculty_email=request.GET.get('email2','')
+    S_faculty_dept=request.GET.get('major2','')
+    GS_name=request.GET.get('name3','')
+    GS_phone=request.GET.get('contact3','')
+    GS_email=request.GET.get('email3','')
+    title=request.GET.get('description','')
+    website=request.GET.get('website','')
+    special_requirements=request.GET.get('special_requirements','')
+    long_desc=request.GET.get('long_desc','')
+    specialization=request.GET.get('name','')
+    supervision=request.GET.get('name','')
+    supervision_by=request.GET.get('name','')
+    Nature=request.GET.get('name','')
+    prior_work=request.GET.get('name','')
+    student_desired=request.GET.get('name','')
+    finances=request.GET.get('name','')
+    account=request.GET.get('name','')
+    past_DLC=request.GET.get('name','')
+
+    db = MySQLdb.connect(MYSQL_IP,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE)
+    cursor = db.cursor()
+    command="""insert into project values(' """ + NULL + """ ',' """ + name + """ ',' """ + contact_number + """',' """ + email + """',' """ + dept + """',' """ + EDC_focus + """',' """ + S_faculty_name + """',' """ + S_faculty_phone + """',' """ + S_faculty_email + """',' """ + GS_name + """',' """ + GS_phone + """',' """ + GS_email + """',' """ + S_faculty_dept + """',' """ + title + """',' """ + website + """',' """ + special_requirements + """',' """ + long_desc + """',' """ + specialization + """',' """ + supervision + """',' """ + supervision_by + """',' """ + Nature + """',' """ + prior_work + """',' """ + student_desired + """',' """ + finances + """',' """ + account + """',' """ + past_DLC + """');"""
+    cursor.execute(command)
+    db.commit()
