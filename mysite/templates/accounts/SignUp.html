@@ -1,0 +1,15 @@
+{% extends '_layouts/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Register | {{block.super}} {% endblock %}
+
+{% block headline %}<h1>Welcome to the Discovery Learning Apprenticeship program</h1>
+<h2>Please register to access application forms!</h2>
+
+{% endblock %}
+
+{% block content %}
+
+{% crispy form %}
+
+{% endblock content %}
