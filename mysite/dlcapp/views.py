@@ -12,7 +12,7 @@ from django.shortcuts import render
 
 MYSQL_IP = "127.0.0.1"
 MYSQL_USER = "root"
-MYSQL_PASSWORD = "topspin@123"
+MYSQL_PASSWORD = "a"
 MYSQL_DATABASE = "student"
 
 def home(request):

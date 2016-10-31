@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-TEMPLATE_PATH = os.path.join(BASE_DIR,'dlcapp/templates/')
+TEMPLATE_DLCAPP_PATH = os.path.join(BASE_DIR,'dlcapp/templates/')
+TEMPLATE_PATH = os.path.join(BASE_DIR,'templates/')
 
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
@@ -40,7 +41,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dlcapp',
+    'crispy_forms',
+    'dlcapp'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -67,10 +69,7 @@ DATABASES = {
         'NAME': 'student',
         'USER': 'root',
         'PASSWORD': 'a',
-        # 'HOST': 'ckamat.mysql.pythonanywhere-services.com',
-        'HOST': '127.0.0.1',
-        # 'PORT':'8000'
-        # 'TEST_NAME': 'ckamat$test_student>'
+        'HOST': 'localhost',
     }
 }
 
@@ -80,7 +79,7 @@ DATABASES = {
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_PATH],
+        'DIRS': [TEMPLATE_PATH,TEMPLATE_DLCAPP_PATH],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -108,3 +107,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
