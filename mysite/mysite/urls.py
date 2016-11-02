@@ -4,7 +4,7 @@ from django.contrib import admin
 
 # from dlcapp.views import register, home, printdata
 from dlcapp import views
-from .views import HomepageView, SignUpView, LoginView
+from .views import HomepageView, SignUpView, LoginView, LogoutView
 admin.autodiscover()
 
 # urlpatterns = [url(r'^register/', views.register, name='register'),
@@ -23,4 +23,5 @@ admin.autodiscover()
 
 urlpatterns = [url(r'^$',HomepageView.as_view(),name='home'),
                url(r'^accounts/register/', SignUpView.as_view(),name='Signup'),
-               url(r'^accounts/login/', LoginView.as_view(), name='Login')]
+               url(r'^accounts/login/', LoginView.as_view(), name='Login'),
+               url(r'^accounts/logout/', LogoutView.as_view(),name='Logout')]
