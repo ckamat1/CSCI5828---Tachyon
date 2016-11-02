@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CSCI5828-Tachyon.iml" filepath="$PROJECT_DIR$/.idea/CSCI5828-Tachyon.iml" />
-      <module fileurl="file://$USER_HOME$/NLP_assignments/.idea/NLP_assignments.iml" filepath="$USER_HOME$/NLP_assignments/.idea/NLP_assignments.iml" />
     </modules>
   </component>
 </project>
