@@ -1,0 +1,15 @@
+{% extends '_layouts/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Login | {{block.super}} {% endblock %}
+
+{% block headline %}<h1>Welcome to DLA Login page</h1>
+<h2>Log into your account with username and password which you used while registration!</h2>
+
+{% endblock %}
+
+{% block content %}
+
+{% crispy form %}
+
+{% endblock content %}
