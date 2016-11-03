@@ -24,6 +24,7 @@ urlpatterns = [url(r'^$',HomepageView.as_view(),name='home'),
                url(r'^faculty/',views.faculty,name='faculty'),
                url(r'^student/',views.student,name='student'),
                url(r'^listOfProjects/',views.listOfProjects,name='projects'),
+               url(r'^addProject/',views.addProject,name='addProject'),
                url(r'^accounts/register/', SignUpView.as_view(),name='Signup'),
                url(r'^accounts/login/', LoginView.as_view(), name='Login'),
                url(r'^accounts/logout/', LogoutView.as_view(),name='Logout')]
