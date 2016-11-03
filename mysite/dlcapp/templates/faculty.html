@@ -11,9 +11,15 @@
 </head>
 <body>
 <div class="container">
-    <div class="DLA-top">
-                <a href="http://ec2-54-200-233-36.us-west-2.compute.amazonaws.com:8000/" target="_self">Home</a>
-    </div><!--/ DLA top bar -->
+       <div class="DLA-top">
+                <a href="{%url 'user'%}" target="_self">Home</a>
+                <span class="right">
+                    <a href="{%url 'Logout'%}">
+                        <strong>Logout</strong>
+                    </a>
+                </span>
+                <div class="clr"></div>
+       </div><!--/ DLA top bar -->
     <header>
         <h1>
             Discovery Learning Apprenticeship Program - Faculty Submission

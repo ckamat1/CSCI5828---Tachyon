@@ -1,8 +1,6 @@
 from django.conf.urls import url
 from django.contrib import admin
 # from django.views.generic import TemplateView
-
-# from dlcapp.views import register, home, printdata
 from dlcapp import views
 from .views import HomepageView, SignUpView, LoginView, LogoutView
 admin.autodiscover()
@@ -22,6 +20,10 @@ admin.autodiscover()
 
 
 urlpatterns = [url(r'^$',HomepageView.as_view(),name='home'),
+               url(r'^user/',views.user,name='user'),
+               url(r'^faculty/',views.faculty,name='faculty'),
+               url(r'^student/',views.student,name='student'),
+               url(r'^listOfProjects/',views.listOfProjects,name='projects'),
                url(r'^accounts/register/', SignUpView.as_view(),name='Signup'),
                url(r'^accounts/login/', LoginView.as_view(), name='Login'),
                url(r'^accounts/logout/', LogoutView.as_view(),name='Logout')]

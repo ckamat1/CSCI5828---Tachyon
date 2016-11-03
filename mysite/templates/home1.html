@@ -3,5 +3,6 @@
 {% block headline %}<h1>Welcome to Discovery Learning Apprenticeship program</h1>{% endblock headline %}
 
 {% block content %}
-<p>Howdy{% if user.is_authenticated %} {{ user.username }}{% endif %}!</p>
+<p>Hello {% if user.is_authenticated %} {{ user.username }}{% endif %}!</p>
+<p>If you are a new user, please click on register. If you are existing user, please login to continue.</p>
 {% endblock %}

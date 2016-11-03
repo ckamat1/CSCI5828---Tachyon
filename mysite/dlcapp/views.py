@@ -15,10 +15,10 @@ MYSQL_USER = "root"
 MYSQL_PASSWORD = "a"
 MYSQL_DATABASE = "student"
 
-def home(request):
+def student(request):
     return render(request, 'Student.html', {'right_now':datetime.today()})
 
-def index(request):
+def user(request):
     return render(request,'index.html')
 
 def Bootstrap(request):

@@ -6,19 +6,31 @@
             Discovery Learning
         </title>
         <link rel="stylesheet" href="{% static 'dlcapp/style.css' %}" type="text/css">
+        <link rel="stylesheet" type="text/css" href="{% static 'dlcapp/css/style_demo.css' %}" media="all" />
     </head>
     <body>
-        <marquee><h1>Welcome to discovery learning apprenticeship</h1></marquee>
+        <div class="container">
+        <div class="DLA-top">
+                <a href="{%url 'user'%}" target="_self">Home</a>
+                <span class="right">
+                    <a href="{%url 'Logout'%}">
+                        <strong>Logout</strong>
+                    </a>
+                </span>
+                <div class="clr"></div>
+        </div><!--/ DLA top bar -->
+        <header><h1>Welcome to discovery learning apprenticeship</h1></header>
         <div class="container-fluid" align="center" style="line-height: 50px" >
             <form method="get">
-                <div id="about1"><label>Click on one of the buttons below</label><br>
-                    <button formaction="/faculty/">Faculty</button><br>
-                    <button formaction="/home/">Student</button><br>
+                <div id="about1"><label>Click on one of the forms below</label><br>
+                    <button formaction="/faculty/">Faculty form</button><br>
+                    <button formaction="/student/">Student form</button><br>
                     <button formaction="/listOfProjects/">Projects</button>
                 </div>
             <!--<a href="faculty.html" target ="_parent">Faculty form</a><br>-->
             <!--<a href="Student.html" target="_parent">Student form</a>-->
             </form>
+        </div>
         </div>
     </body>
 </html>
