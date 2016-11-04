@@ -10,9 +10,9 @@ from django.shortcuts import render
 
 
 
-MYSQL_IP = "127.0.0.1"
-MYSQL_USER = "root"
-MYSQL_PASSWORD = "a"
+MYSQL_IP = "djangowebserverdb.c2f5vwvu1xss.us-west-2.rds.amazonaws.com"
+MYSQL_USER = "django"
+MYSQL_PASSWORD = "django123"
 MYSQL_DATABASE = "student"
 
 def student(request):
@@ -138,7 +138,7 @@ def addProject(request):
     title=request.GET.get('description','')
     website=request.GET.get('website','')
     special_requirements=request.GET.get('special_requirements','')
-    long_desc=request.GET.get('long_desc','')
+    long_desc=request.GET.get('long_desc','').replace("\"","").replace("\'","")
     specialization=request.GET.get('specialization','')
     supervision=request.GET.get('sup','')
     supervision_by=request.GET.get('supv','')
