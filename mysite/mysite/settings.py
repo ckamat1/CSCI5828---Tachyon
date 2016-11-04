@@ -67,9 +67,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'student',
-        'USER': 'root',
-        'PASSWORD': 'a',
-        'HOST': 'localhost',
+        'USER': 'django',
+        'PASSWORD': 'django123',
+        'HOST': 'djangowebserverdb.c2f5vwvu1xss.us-west-2.rds.amazonaws.com',
     }
 }
 
