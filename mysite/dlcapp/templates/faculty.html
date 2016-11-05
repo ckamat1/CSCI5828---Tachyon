@@ -25,9 +25,24 @@
             Discovery Learning Apprenticeship Program - Faculty Submission
         </h1>
     </header>
+    <p>
+                    <strong>Thanks for your interest in submitting one or more projects for the
+                    Discovery Learning Apprenticeship program. Please complete all required fields,
+                    which are marked with asterisk. You will
+                    receive a confirmation after you enter your project indicating that your project
+                    has been received. You may re-enter the application if you have more than one
+                    project to advertise.<br> <br>If you have a correction or change to your project, if you
+                    have trouble with this application or if you have questions, please contact
+                    Sharon Anderson at
+					<a target="_blank" style="color: rgb(17, 85, 204); font-family: Calibri, sans-serif; font-size: 14.4444446563721px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none;
+					white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);" href="mailto:sharon.e.anderson@colorado.edu">
+					sharon.e.anderson@colorado.edu</a>
+                        </strong>
+    </p>
+                <br />
     <div class="form">
         <form id = "facultyform" name = "facultyform" method="GET" action="/addProject/">
-            <div class="Memberinfo"><label for="MemberInfo"><strong>Faculty Member Info</strong></label><br><br>
+            <div class="Memberinfo"><label for="MemberInfo"><strong><span style="font-size: 12pt">Faculty Member Info</strong></label><br><br>
             <p class="FacultyName"><label for="name">* Faculty Name: </label><input id="name" name="name" placeholder="First and last name" required="" tabindex="1" type="text"></p>
             <p class="FacultyContact"><label for="contact">* Contact number: </label><input id="contact" name="contact" placeholder="Phone Number" required="" tabindex="1" type="number"></p>
             <p class="FacultyEmail"><label for="email">* Faculty email address:</label><input id="email" name="email" placeholder="example@domain.com" required="" tabindex="1" type="text'"></p>
@@ -58,7 +73,7 @@
                 <input type="radio" name="radiobutton" id="2" value="No">No
             </p>
             </div><br>
-            <div class="Member2"><label for="MemberInfo"><strong>Second Faculty Member(optional)</strong></label><br><br>
+            <div class="Member2"><label for="MemberInfo"><strong> <span style="font-size: 12pt">Second Faculty Member(optional)</strong></label><br><br>
                 <p class="FacultyName"><label for="name2">Faculty Name:</label><input id="name2" name="name2" placeholder="First and last name" tabindex="1" type="text"></p>
                 <p class="FacultyContact"><label for="contact2">Contact number:</label><input id="contact2" name="contact2" placeholder="Numbers only" tabindex="1" type="number"></p>
                 <p class="FacultyEmail"><label for="email2">Faculty email address:</label><input id="email2" name="email2" placeholder="example@domain.com" tabindex="1" type="text'"></p>
@@ -84,25 +99,24 @@
                  </label>
             </p>
             </div><br><br>
-            <div class="PostDoc"><label for="MemberInfo"><strong>Grad Student/Post Doc Info (Optional)</strong></label><br><br>
+            <div class="PostDoc"><label for="MemberInfo"><strong><span style="font-size: 12pt">Grad Student/Post Doc Info (Optional)</strong></label><br><br>
                 <p class="PostDocName"><label for="name">Faculty Name:</label><input id="postdocName" name="name3" placeholder="First and last name" tabindex="1" type="text"></p>
                 <p class="FacultyContact"><label for="contact">Contact number:</label><input id="PostdocContact" name="contact3" placeholder="Numbers only" tabindex="1" type="number"></p>
                 <p class="FacultyEmail"><label for="email">Faculty email address:</label><input id="postdocEmail" name="email3" placeholder="example@domain.com" tabindex="1" type="text" </p>
-            </div> 
+            </div>
 			<br>
-            <div class="Apprenticeship info"><label for="apprentice"><strong>Apprentice Information</strong></label><br><br>
+            <div class="Apprenticeship info"><label for="apprentice"><strong><span style="font-size: 12pt">Apprentice Information</strong></label><br><br>
             <p class="description"><label for="description">* A title/description for the apprenticeship:
 (This is what students will see in the application,<br> may not exceed 80 characters)</label></p><br>
             <textarea rows="4" cols="55" name="description" id="description" required=""></textarea>
             <p class="website"><label for="website">A website link related to your apprenticeship that would provide more information to interested students?</label></p><br>
             <input name="website" id="website" type="text">
-            <p class="description"><label for="description">Special Requirements that applicants must meet?<br>
-(eg: Must have had certain course, certain class standing, available to work in 2 5-hour blocks, etc.)<br>
-(may not exceed 1000 characters)</label></p><br>
+            <p class="description"><label for="description">Special Requirements that applicants must meet?<br></label></p>
+            <p class="description">(Eg: Must have had certain course, certain class standing, available to work in 2 5-hour blocks, etc --may not exceed 1000 characters)</p><br>
             <textarea rows="4" cols="55" name="special_requirements" id="special_requirements"></textarea>
-            <p class="long_desc"><label for="description" >* A longer description of the apprenticeship:<br>
-(may not exceed 1200 characters)</label></p><br>
-            <textarea rows="4" cols="70" name="long_desc" id="long_desc" required=""></textarea>
+            <p class="long_desc"><label for="description" >* A longer description of the apprenticeship:</label></p>
+            <p class="long_desc">    (may not exceed 1200 characters)<br><br>
+            <textarea rows="4" cols="55" name="long_desc" id="long_desc" required=""></textarea>
             <p class="specialization_choice" name="specialization"><label for="specialization">From what areas do you wish to recruit students?(check all that apply)</label></p><br>
             <input id="ASEN" value="ASEN" name="specialization" type="checkbox">Aerospace Engineering <br>
             <input id="EEEN" value="EEEN" name="specialization" type="checkbox">Electrical Engineering <br>
@@ -122,12 +136,12 @@
             <input type="radio" name="sup" value="Very little supervision; student will need to work largely independently" required >Very little supervision; student will need to work largely independently<br>
             <input type="radio" name="sup" value ="Moderate amount of supervision and interaction with others">Moderate amount of supervision and interaction with others<br>
             <input type="radio" name="sup" value ="ood deal of supervision; student will work as an integral part of a research team">Good deal of supervision; student will work as an integral part of a research team<br>
-            
+
 			<p><label>* Supervision provided by:</label></p><br>
             <input type="radio" name="supv" value ="Supervision primarily by faculty supervisor" required >Supervision primarily by faculty supervisor<br>
             <input type="radio" name="supv" value ="Supervision primarily by graduate students">Supervision primarily by graduate students<br>
             <input type="radio" name="supv" value ="Supervision primarily a combination of faculty and graduate students" >Supervision primarily a combination of faculty and graduate students<br>
-            
+
 			<p><label>* Nature of work:</label></p><br>
             <input type="radio" name="natw" value ="Nature of work is primarily theoretical, most work on paper/electronic medium" required >Nature of work is primarily theoretical, most work on paper/electronic medium<br>
             <input type="radio" name="natw" value ="Nature of work is primarily experimental, requiring hands-on work in a lab">Nature of work is primarily experimental, requiring hands-on work in a lab<br>
@@ -136,26 +150,27 @@
             <input type="radio" name="natw" value ="Nature of work is a combination of several types of work">Nature of work is a combination of several types of work<br>
             <input type="radio" name="natw" value ="">other, specify:<br>
             <input type="text">
-			
+
             <p><label>* Amount of prior work conducted in association with this project:</label></p><br>
             <input type="radio" name="workc" value="No prior work; student will be starting from basic idea" required >No prior work; student will be starting from basic idea<br>
             <input type="radio" name="workc" value="Some prior work; student will build on work of others">Some prior work; student will build on work of others<br>
             <input type="radio" name="workc" value="Well-established body of work; student will refine/improved upon efforts of others">Well-established body of work; student will refine/improved upon efforts of others<br>
             <input type="radio" name="workc"> other, specify:<br>
             <input type="text">
-			
+
             <p><label>Name of specific student desired: (if any) – be sure to ask them to apply!</label></p><br>
             <input type="text" name="student" id="student">
             </div>
-            <div class="Finances"><label for="finances"><strong>Finances</strong><br><br>
-                <p><label>* What speed type will you use for your 50% match of the funding? (should be in the form XXXXXXXX, all numbers)</label></p><br>
-                <input type="numbers" name= "finances" required=""> 
+            <div class="Finances"><label for="finances"><strong><span style="font-size: 12pt">Finances</strong><br><br>
+                <p><label>* What speed type will you use for your 50% match of the funding?</label></p>
+                <p>(should be in the form XXXXXXXX, all numbers)</p><br>
+                <input type="numbers" name= "finances" required="">
                 <p><label>* Accounting contact for your project:</label></p><br>
                 <input name="account" id="account" type="text" required=""><br>
             </div>
-            <div class="Other"><label for="Other"><strong>Other</strong></label><br><br>
-                <p><label>Have you supervised a Discovery Learning Apprentice in the past?<br>
-(this question intended for the faculty supervisor, not the graduate student or post-doc)</label></p><br>
+            <div class="Other"><label for="Other"><strong>Other</strong></label><br>
+                <p><label>Have you supervised a Discovery Learning Apprentice in the past?</label></p>
+<p>(this question is intended for the faculty supervisor, not the graduate student or post-doc)</p><br>
                 <input name="radiobutton2" id="radiobutton1" type="radio" value="Yes" >Yes
                 <input name="radiobutton2" id="radiobutton2" type="radio"  value="No" >No
             </div>
