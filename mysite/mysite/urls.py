@@ -2,7 +2,7 @@ from django.conf.urls import url
 from django.contrib import admin
 # from django.views.generic import TemplateView
 from dlcapp import views
-from .views import HomepageView, SignUpView, LoginView, LogoutView
+from .views import HomepageView, SignUpView, LoginView, LogoutView, RegisterSuccess
 admin.autodiscover()
 
 # urlpatterns = [url(r'^register/', views.register, name='register'),
@@ -20,7 +20,9 @@ admin.autodiscover()
 
 
 urlpatterns = [url(r'^$',HomepageView.as_view(),name='home'),
+               url(r'^register/',views.register, name='register'),
                url(r'^user/',views.user,name='user'),
+               url(r'^register_success/',RegisterSuccess,name='Success'),
                url(r'^faculty/',views.faculty,name='faculty'),
                url(r'^student/',views.student,name='student'),
                url(r'^listOfProjects/',views.listOfProjects,name='projects'),

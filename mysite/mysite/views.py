@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.core.urlresolvers import reverse_lazy
 from django.views import generic
-
+from django.shortcuts import render
 from .forms import RegistrationForm, LoginForm
 
 
@@ -11,6 +11,7 @@ class HomepageView(generic.TemplateView):
 
 class SignUpView(generic.CreateView):
     form_class = RegistrationForm
+    success_url = reverse_lazy('Success')
     model = User
     template_name = 'accounts/SignUp.html'
 
@@ -39,3 +40,5 @@ class LogoutView(generic.RedirectView):
         return super(LogoutView,self).get(request,*args,**kwargs)
 
 
+def RegisterSuccess(request):
+    return render(request, 'accounts/register_success.html')
