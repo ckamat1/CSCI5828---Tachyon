@@ -1,0 +1,31 @@
+<html><center><h1>PROJECTS IN DATABASE</h1></center><table border=\"1px\" align=\"center\">"
+     <thead>
+    <td>faculty name</td>
+   <td>faculty phone</td>
+   <td>faculty email</td>
+   <td>faculty department</td>
+   <td>project title</td>
+   <td>project link</td>
+   <td>project requirments</td>
+   <td>project description</td>
+   <td>departments offered</td>
+   <td>supervision</td>
+   <td>supervision_by</td>
+   <td>nature of work</td>   
+    </thead>
+    {% for item in query_results %}
+	<tr>
+        <td> {{ item.faculty_name }} </td>
+        <td> {{ item.faculty_phone }} </td>
+        <td> {{ item.faculty_email }} </td>
+        <td> {{ item.faculty_dept }} </td>
+        <td> {{ item.title }} </td>
+        <td> {{ item.url_link }} </td>
+        <td> {{ item.special_req }} </td>
+        <td> {{ item.long_description }} </td>
+        <td> {{ item.depts_applicable }} </td>
+        <td> {{ item.amount_of_supervision }} </td>
+        <td> {{ item.supervision_by }} </td>
+        <td> {{ item.nature_of_work }} </td>
+	</tr>
+    {% endfor %}
