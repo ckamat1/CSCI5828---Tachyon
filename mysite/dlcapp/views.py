@@ -7,8 +7,8 @@ import MySQLdb
 from datetime import datetime
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
-
-
+from django.template import loader
+from .models import Project
 
 MYSQL_IP = "djangowebserverdb.c2f5vwvu1xss.us-west-2.rds.amazonaws.com"
 MYSQL_USER = "django"
@@ -120,45 +120,37 @@ def printdata(request):
 
 
 def addProject(request):
+    project = Project()
     NULL = ""
-    name=request.GET.get('name','')
+    project.faculty_name=request.GET.get('name','')
     
-    contact_number=request.GET.get('contact','')
-    email=request.GET.get('email','')
+    project.faculty_phone=request.GET.get('contact','')
+    project.faculty_email=request.GET.get('email','')
 
-    dept=request.GET.get('major','')
-    EDC_focus=request.GET.get('radiobutton','')
-    S_faculty_name=request.GET.get('name2','')
-    S_faculty_phone=request.GET.get('contact2','')
-    S_faculty_email=request.GET.get('email2','')
-    S_faculty_dept=request.GET.get('major2','')
-    GS_name=request.GET.get('name3','')
-    GS_phone=request.GET.get('contact3','')
-    GS_email=request.GET.get('email3','')
-    title=request.GET.get('description','')
-    website=request.GET.get('website','')
-    special_requirements=request.GET.get('special_requirements','')
-    long_desc=request.GET.get('long_desc','').replace("\"","").replace("\'","")
-    specialization=request.GET.get('specialization','')
-    supervision=request.GET.get('sup','')
-    supervision_by=request.GET.get('supv','')
-    Nature=request.GET.get('natw','')
-    prior_work=request.GET.get('workc','')
-    student_desired=request.GET.get('student','')
-    finances=request.GET.get('finances','')
-    account=request.GET.get('account','')
-    past_DLC=request.GET.get('radiobutton2','')
+    project.faculty_dept=request.GET.get('major','')
+    project.edc_focus=request.GET.get('radiobutton','')
+    project.sec_faculty_name=request.GET.get('name2','')
+    project.sec_faculty_phone=request.GET.get('contact2','')
+    project.sec_faculty_email=request.GET.get('email2','')
+    project.sec_faculty_dept=request.GET.get('major2','')
+    project.grad_student_name=request.GET.get('name3','')
+    project.grad_student_number=request.GET.get('contact3','')
+    project.grad_student_email=request.GET.get('email3','')
+    project.title=request.GET.get('description','')
+    project.url_link=request.GET.get('website','')
+    project.special_req=request.GET.get('special_requirements','')
+    project.long_description=request.GET.get('long_desc','').replace("\"","").replace("\'","")
+    project.depts_applicable=request.GET.get('specialization','')
+    project.amount_of_supervision=request.GET.get('sup','')
+    project.supervision_by=request.GET.get('supv','')
+    project.nature_of_work=request.GET.get('natw','')
+    project.prior_work_experience=request.GET.get('workc','')
+    project.desired_studend_id=request.GET.get('student','')
+    project.speed_type=request.GET.get('finances','')
+    project.accounting_contact=request.GET.get('account','')
+    project.previous_dlc_exp=request.GET.get('radiobutton2','')
+    project.save()
 
-    db = MySQLdb.connect(MYSQL_IP,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE)
-    cursor = db.cursor()
-    command="""insert into project values(' """ + name + """ ',' """ + contact_number + """',' """ + email + """',' """ + dept + """',' """ + EDC_focus + """',' """ + S_faculty_name + """',' """ + S_faculty_phone + """',' """ + S_faculty_email + """',' """ + GS_name + """',' """ + GS_phone + """',' """ + GS_email + """',' """ + S_faculty_dept + """',' """ + title + """',' """ + website + """',' """ + special_requirements + """',' """ + long_desc + """',' """ + specialization + """',' """ + supervision + """',' """ + supervision_by + """',' """ + Nature + """',' """ + prior_work + """',' """ + student_desired + """',' """ + finances + """',' """ + account + """',' """ + past_DLC + """');"""
-    cursor.execute(command)
-    db.commit()
-
-    command="""select * from project"""
-    cursor.execute(command)
-    row = cursor.fetchone()
-    #response="<html><center><h1>Thanks for response</h1></center><table border=\"1px\" align=\"center\">"
     
     return HttpResponseRedirect('/listOfProjects/')
 
