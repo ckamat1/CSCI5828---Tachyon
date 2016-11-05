@@ -1,14 +1,69 @@
-<html><center><h1>PROJECTS IN DATABASE</h1></center><table border=\"1px\" align=\"center\">"
+
+<html>
+
+<center><h1>PROJECTS IN DATABASE</h1></center><table border=\"1px\" align=\"center\">"
+<div  class="form">
+    	<form id="contactform" action="/listOfProjects/">
+				<fieldset>
+                 <label>Filter by: Departments applicable: </label>
+                  <label class="major">
+                  <select class="select-style" name="depts_applicable" onchange=filter() required="" >
+                 	<!-- option selected="selected" value="0">Please Select</option> -->
+					<option value="" >Please Select</option>
+					<option value="ALL_DEP" >Any departments</option>
+					<option value="ASEN">Aerospace Engineering</option>
+					<option value="AMEN">Applied Mathematics</option>
+					<option value="AREN">Architectural Engineering</option>
+					<option value="CHEN">Chemical Engineering</option>
+					<option value="CBEN">Chemical and Biological Engineering</option>
+					<option value="CVEN">Civil Engineering</option>
+					<option value="CSEN">Computer Science</option>
+					<option value="EEEN">Electrical Engineering</option>
+					<option value="ECEN">Electrical and Computer Engineering</option>
+					<option value="EPEN">Engineering Physics</option>
+					<option value="EVEN">Environmental Engineering</option>
+					<option value="GEEN">Engineering Plus</option>
+					<option value="MCEN">Mechanical Engineering</option>
+					<option value="TMEN">Technology, Arts, and Media</option>
+                  </label>
+                 </select>
+              </fieldset>
+<fieldset>
+                 <label>Filter by: Department offering: </label>
+                  <label class="major">
+                  <select class="select-style" name="department_offered" onchange=filter() required="" >
+                 	<!-- option selected="selected" value="0">Please Select</option> -->
+					<option value="" >Please Select</option>
+					<option value="ALL_DEP" >Any departments</option>
+					<option value="ASEN">Aerospace Engineering</option>
+					<option value="AMEN">Applied Mathematics</option>
+					<option value="AREN">Architectural Engineering</option>
+					<option value="CHEN">Chemical Engineering</option>
+					<option value="CBEN">Chemical and Biological Engineering</option>
+					<option value="CVEN">Civil Engineering</option>
+					<option value="CSEN">Computer Science</option>
+					<option value="EEEN">Electrical Engineering</option>
+					<option value="ECEN">Electrical and Computer Engineering</option>
+					<option value="EPEN">Engineering Physics</option>
+					<option value="EVEN">Environmental Engineering</option>
+					<option value="GEEN">Engineering Plus</option>
+					<option value="MCEN">Mechanical Engineering</option>
+					<option value="TMEN">Technology, Arts, and Media</option>
+                  </label>
+                 </select>
+              </fieldset>
+</form>
+</div>
      <thead>
     <td>faculty name</td>
    <td>faculty phone</td>
    <td>faculty email</td>
-   <td>faculty department</td>
+   <td>department offering</td>
    <td>project title</td>
    <td>project link</td>
    <td>project requirments</td>
    <td>project description</td>
-   <td>departments offered</td>
+   <td>departments applicable</td>
    <td>supervision</td>
    <td>supervision_by</td>
    <td>nature of work</td>   
