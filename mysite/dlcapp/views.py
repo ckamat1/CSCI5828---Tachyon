@@ -155,34 +155,8 @@ def addProject(request):
     return HttpResponseRedirect('/listOfProjects/')
 
 def listOfProjects(request):
-
-    db = MySQLdb.connect(MYSQL_IP,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE)
-    cursor = db.cursor()
-    command="""select faculty_name,faculty_phone,faculty_email,faculty_dept,title,url_link,special_req,long_description,depts_applicable,amount_of_supervision,supervision_by,nature_of_work from project"""
-    cursor.execute(command)
-    row = cursor.fetchone()
-    response="<html><center><h1>PROJECTS IN DATABASE</h1></center><table border=\"1px\" align=\"center\">"
-    response+=""" <thead>
-    <td>faculty name</td>
-   <td>faculty phone</td>
-   <td>faculty email</td>
-   <td>faculty department</td>
-   <td>project title</td>nature_of_work
-   <td>project link</td>
-   <td>project requirments</td>
-   <td>project description</td>
-   <td>departments offered</td>
-   <td>supervision</td>
-   <td>supervision_by</td>
-   <td>nature of work</td>   
-    </thead>"""
-    while row is not None:
-        response+="<tr>"
-        for a in row:
-         response+="<td>" + str(a) +"</td>"
-
-        response+="</tr>"
-        row = cursor.fetchone()
-
-
-    return HttpResponse(response)
+    
+    query_results = Project.objects.all()
+    #query_results = Project.objects.raw('SELECT project_id, title,faculty_name from project')
+    print(query_results)
+    return render(request,'listOfProjects.html',{'query_results':query_results})

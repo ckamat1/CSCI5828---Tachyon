@@ -144,7 +144,7 @@ class Faculty(models.Model):
 class Project(models.Model):
     faculty_name = models.CharField(max_length=60, blank=True, null=True)
     faculty_phone = models.CharField(max_length=60, blank=True, null=True)
-    faculty_email = models.CharField(max_length=60, blank=True, null=True)
+    faculty_email = models.CharField(max_length=60, blank=True, null=False)
     faculty_dept = models.CharField(max_length=60, blank=True, null=True)
     edc_focus = models.CharField(db_column='EDC_focus', max_length=5, blank=True, null=True)  # Field name made lowercase.
     sec_faculty_name = models.CharField(max_length=60, blank=True, null=True)
@@ -167,6 +167,7 @@ class Project(models.Model):
     speed_type = models.CharField(max_length=200, blank=True, null=True)
     accounting_contact = models.CharField(max_length=50, blank=True, null=True)
     previous_dlc_exp = models.CharField(db_column='previous_DLC_exp', max_length=5, blank=True, null=True)  # Field name made lowercase.
+    project_id = models.CharField(max_length=50, blank=True, null=False,primary_key=True)
 
     class Meta:
         managed = False
