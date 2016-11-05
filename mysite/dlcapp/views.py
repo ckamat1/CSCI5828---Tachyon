@@ -159,7 +159,7 @@ def listOfProjects(request):
     departments_applicable = request.GET.get('depts_applicable','') 
     department_offerd = request.GET.get('department_offered','')
     query_results = Project.objects.all()
-    if "ALL_DEP" in departments_applicable :
+    if "ALL_DEP" in departments_applicable or "ALL_DEP" in department_offerd:
         pass
     elif departments_applicable :
     	query_results = query_results.filter(depts_applicable__contains=departments_applicable)
