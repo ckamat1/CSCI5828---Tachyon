@@ -127,7 +127,7 @@ def addProject(request):
     project.faculty_phone=request.GET.get('contact','')
     project.faculty_email=request.GET.get('email','')
 
-    project.faculty_dept=request.GET.get('major','')
+    project.faculty_dept=request.GET.get('major1','')
     project.edc_focus=request.GET.get('radiobutton','')
     project.sec_faculty_name=request.GET.get('name2','')
     project.sec_faculty_phone=request.GET.get('contact2','')
@@ -140,7 +140,7 @@ def addProject(request):
     project.url_link=request.GET.get('website','')
     project.special_req=request.GET.get('special_requirements','')
     project.long_description=request.GET.get('long_desc','').replace("\"","").replace("\'","")
-    project.depts_applicable=request.GET.get('specialization','')
+    project.depts_applicable=request.GET.getlist('specialization')
     project.amount_of_supervision=request.GET.get('sup','')
     project.supervision_by=request.GET.get('supv','')
     project.nature_of_work=request.GET.get('natw','')
