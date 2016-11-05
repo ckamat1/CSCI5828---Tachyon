@@ -155,8 +155,15 @@ def addProject(request):
     return HttpResponseRedirect('/listOfProjects/')
 
 def listOfProjects(request):
-    
+   
+    departments_applicable = request.GET.get('depts_applicable','') 
+    department_offerd = request.GET.get('department_offered','')
     query_results = Project.objects.all()
+    if "ALL_DEP" in departments_applicable :
+        pass
+    elif departments_applicable :
+    	query_results = query_results.filter(depts_applicable__contains=departments_applicable)
+    elif department_offerd :
+        query_results = query_results.filter(faculty_dept__contains=department_offerd) 
     #query_results = Project.objects.raw('SELECT project_id, title,faculty_name from project')
-    print(query_results)
-    return render(request,'listOfProjects.html',{'query_results':query_results})
+    return render(request,'listOfProjects.html',{'query_results':query_results}) 
