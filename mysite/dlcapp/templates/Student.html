@@ -191,11 +191,9 @@
                   <select class="select-style" name="major" required >
                  <!-- 	<option selected="selected" value="0" required >Please Select</option> -->
 					<option value="" >Please Select</option>
-					<option value="Proj1" >Project 1 </option>
-					<option value="Proj2">Project 2</option>
-					<option value="Proj3">Project 3</option>
-					<option value="Proj4">Project 4</option>
-					<option value="Proj5">Project 5</option>
+					{% for item in query_results %}
+					<option value="{{item.title}}"> {{item.title}} </option>
+					{% endfor %}
                   </label>
                  </select>
               </fieldset> <br>
@@ -203,11 +201,9 @@
 			  <label class="major">
                   <select class="select-style" name="major">
                  	<option selected="selected" value="0">Please Select</option>
-					<option value="Proj1">Project 1 </option>
-					<option value="Proj2">Project 2</option>
-					<option value="Proj3">Project 3</option>
-					<option value="Proj4">Project 4</option>
-					<option value="Proj5">Project 5</option>
+					{% for item in query_results %}
+					<option value="{{item.title}}"> {{item.title}} </option>
+					{% endfor %}
                   </label>
                  </select>
               </fieldset> <br> <br>
@@ -215,11 +211,9 @@
 			  <label class="major">
                   <select class="select-style" name="major">
                  	<option selected="selected" value="0">Please Select</option>
-					<option value="Proj1">Project 1 </option>
-					<option value="Proj2">Project 2</option>
-					<option value="Proj3">Project 3</option>
-					<option value="Proj4">Project 4</option>
-					<option value="Proj5">Project 5</option>
+					{% for item in query_results %}
+					<option value="{{item.title}}"> {{item.title}} </option>
+					{% endfor %}
                   </label>
                  </select>
               </fieldset> <br>
@@ -227,22 +221,18 @@
 			  <label class="major"> <br>
                   <select class="select-style" name="major">
                  	<option selected="selected" value="0">Please Select</option>
-					<option value="Proj1">Project 1 </option>
-					<option value="Proj2">Project 2</option>
-					<option value="Proj3">Project 3</option>
-					<option value="Proj4">Project 4</option>
-					<option value="Proj5">Project 5</option>
+					{% for item in query_results %}
+					<option value="{{item.title}}"> {{item.title}} </option>
+					{% endfor %}
                   </label>
                  </select>
               </fieldset><br><br>
 			  <label class="major">
                   <select class="select-style" name="major">
                  	<option selected="selected" value="0">Please Select</option>
-					<option value="Proj1">Project 1 </option>
-					<option value="Proj2">Project 2</option>
-					<option value="Proj3">Project 3</option>
-					<option value="Proj4">Project 4</option>
-					<option value="Proj5">Project 5</option>
+					{% for item in query_results %}
+					<option value="{{item.title}}"> {{item.title}} </option>
+					{% endfor %}
                   </label>
                  </select>
               </fieldset><br> <br>

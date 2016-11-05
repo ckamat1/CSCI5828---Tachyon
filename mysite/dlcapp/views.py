@@ -16,7 +16,8 @@ MYSQL_PASSWORD = "django123"
 MYSQL_DATABASE = "student"
 
 def student(request):
-    return render(request, 'Student.html', {'right_now':datetime.today()})
+    query_results = Project.objects.all()
+    return render(request, 'Student.html', {'right_now':datetime.today(),'query_results':query_results})
 
 def user(request):
     return render(request,'index.html')
