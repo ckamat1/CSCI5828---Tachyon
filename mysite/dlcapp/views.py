@@ -190,3 +190,16 @@ def listOfProjects(request):
         return render(request,'listOfProjects.html',{'query_results':query_results})
     else:
         raise Http404("You need to login to view this page!")
+
+
+def filterStudentForm(request):
+    if request.user.is_authenticated():
+        filterDepartment = request.GET.get('dept_choosen','')
+        query_results = Project.objects.all()
+        query_results = list(query_results.filter(depts_applicable__contains=filterDepartment))
+        query_results = [ x.title for x in query_results]
+        str = ','
+        result = str.join(query_results)
+        return HttpResponse(result)
+    else:
+        raise Http404("You need to login to view this page!")
