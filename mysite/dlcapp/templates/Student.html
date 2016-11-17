@@ -22,8 +22,12 @@ $(document).ready(function(){
               data+="<option value=\"" + projects[i] +"\">" + projects[i] + "</option>"
             }
             data+="</select>"
-            alert(data)
-            $("#selection").html(data);
+            //alert(data)
+            div = "#selection"
+            for (i=1;i<6;i++)
+            {
+            	$(div + i).html(data);
+            }
         }});
     });
 });
@@ -209,55 +213,40 @@ $(document).ready(function(){
 				<fieldset>
                  <label>Indicate upto five research projects in order of interest </label><br><br>
                   <label class="major">
-                  <select class="select-style" name="major" required >
-                 <!-- 	<option selected="selected" value="0" required >Please Select</option> -->
-					<option value="" >Please Select</option>
-					{% for item in query_results %}
-					<option value="{{item.title}}"> {{item.title}} </option>
-					{% endfor %}
+                  	<div id="selection1">
+						<select class="select-style" name="major"><option selected="selected" value="0">Please Select</option></select>
+					</div>
                   </label>
                  </select>
               </fieldset> <br>
-
+			  <fieldset>
 			  <label class="major">
-
-
-                    <div id="selection"><select class="select-style" name="major"><option selected="selected" value="0">Please Select</option></select></div>
-
-
-				  </label>
+					<div id="selection2">
+						<select class="select-style" name="major"><option selected="selected" value="0">Please Select</option></select>
+					</div>
+			  </label>
+              </fieldset> <br>
+			  <fieldset>
+			  <label class="major">
+					<div id="selection3">
+						<select class="select-style" name="major"><option selected="selected" value="0">Please Select</option></select>
+					</div>
+			  </label>
+              </fieldset> <br>
+			  <fieldset>
+			  <label class="major">
+					<div id="selection4">
+						<select class="select-style" name="major"><option selected="selected" value="0">Please Select</option></select>
+					</div>
+			  </label>
+              </fieldset> <br>
+			  <fieldset>
+			  <label class="major">
+					<div id="selection5">
+						<select class="select-style" name="major"><option selected="selected" value="0">Please Select</option></select>
+					</div>
+			  </label>
               </fieldset> <br> <br>
-
-			  <label class="major">
-                  <select class="select-style" name="major">
-                 	<option selected="selected" value="0">Please Select</option>
-					{% for item in query_results %}
-					<option value="{{item.title}}"> {{item.title}} </option>
-					{% endfor %}
-                  </label>
-                 </select>
-              </fieldset> <br>
-
-			  <label class="major"> <br>
-                  <select class="select-style" name="major">
-                 	<option selected="selected" value="0">Please Select</option>
-					{% for item in query_results %}
-					<option value="{{item.title}}"> {{item.title}} </option>
-					{% endfor %}
-                  </label>
-                 </select>
-              </fieldset><br><br>
-			  <label class="major">
-                  <select class="select-style" name="major">
-                 	<option selected="selected" value="0">Please Select</option>
-					{% for item in query_results %}
-					<option value="{{item.title}}"> {{item.title}} </option>
-					{% endfor %}
-                  </label>
-                 </select>
-              </fieldset><br> <br>
-
-
 				 <fieldset>
 				<p class="contact"><label for="check">Have you had a background check yet (at CU)? <br>If yes when? (Take your best guess if you aren't sure.)</label></p>
 				<input id="check" type="radio" name="check" value="male" tabindex="1" > Yes
