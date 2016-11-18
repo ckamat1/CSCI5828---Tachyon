@@ -12,11 +12,12 @@
 $(document).ready(function(){
     $("#prim_major").change(function(){
         dep=document.getElementById('prim_major').value
-        alert(dep)
+        
         $.ajax({url: "/filterStudentForm/?dept_choosen="+dep, success: function(result){
 
             var projects=result.split(',')
             var data="<select class=\"select-style\" name=\"major\">"
+             data+="<option value=\"NA\">NA</option>"
             for(i=0;i<projects.length;i++)
             {
               data+="<option value=\"" + projects[i] +"\">" + projects[i] + "</option>"
