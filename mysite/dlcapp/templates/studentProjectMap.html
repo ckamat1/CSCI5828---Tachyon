@@ -1,14 +1,22 @@
 <html>
 <head>
   </head>
-<center><h1>PROJECTS IN DATABASE</h1></center><table border=\"1px\" align=\"center\">"
-    {% for item in query_results %}
+<center><marquee><h1>PROJECTS IN DATABASE</h1></marquee></center><table border=\"1px\" align=\"center\">"
+<form method='GET' action='/modifymapping'>
+<tr>
+    <th>Project Title</th>
+    <th>Best Studet Match</th>
+   <th>Override Selection</th>
+   <th>CLick save to override<th>
+</tr>    
+
+{% for item in query_results %}
         <tr>
         <td> {{ item.title }} </td>
 	<td> {{item.student_selected }} </td>
 	<td>
 	<label class="major">
-                  <select class="select-style" name="major">
+                  <select class="select-style" name= {{ item.title }}>
 			<option selected="selected" value="0">Please Select</option>
 		{% for person in item.student %}
 		<option value="{{item.title}}"> {{person.name}} </option>
@@ -16,7 +24,9 @@
 		 </label>
                  </select>
 	</td>
+        <td><input type="submit" value="Save"></td>
         </tr>
     {% endfor %}
+</form>
 </html>
 
