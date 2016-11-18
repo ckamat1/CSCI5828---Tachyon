@@ -168,7 +168,7 @@ class Project(models.Model):
     accounting_contact = models.CharField(max_length=50, blank=True, null=True)
     previous_dlc_exp = models.CharField(db_column='previous_DLC_exp', max_length=5, blank=True, null=True)  # Field name made lowercase.
     project_id = models.CharField(max_length=50, blank=True, null=False,primary_key=True)
-
+    student_assigned = models.CharField(max_length=100, blank=True, null=True)
     class Meta:
         managed = False
         db_table = 'project'
