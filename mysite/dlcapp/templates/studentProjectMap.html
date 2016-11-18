@@ -1,0 +1,22 @@
+<html>
+<head>
+  </head>
+<center><h1>PROJECTS IN DATABASE</h1></center><table border=\"1px\" align=\"center\">"
+    {% for item in query_results %}
+        <tr>
+        <td> {{ item.title }} </td>
+	<td> {{item.student_selected }} </td>
+	<td>
+	<label class="major">
+                  <select class="select-style" name="major">
+			<option selected="selected" value="0">Please Select</option>
+		{% for person in item.student %}
+		<option value="{{item.title}}"> {{person.name}} </option>
+		{% endfor %}
+		 </label>
+                 </select>
+	</td>
+        </tr>
+    {% endfor %}
+</html>
+

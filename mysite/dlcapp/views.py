@@ -176,3 +176,18 @@ def filterStudentForm(request):
         return HttpResponse(result)
     else:
         raise Http404("You need to login to view this page!")
+
+
+def studentProjectMap(request):
+    query_results = Project.objects.all()
+    student_query = Student.objects.all()
+    for entry in query_results:
+        entry.student_selected = "NA"
+        max_gpa = 0.0
+        for student in student_query.filter(project1__contains=entry.title):
+            if float(student.gpa) > max_gpa:
+                max_gpa = float(student.gpa)
+                entry.student_selected= student.name
+
+        entry.student = student_query.filter(project1__contains=entry.title)    
+    return render(request,'studentProjectMap.html',{'query_results':query_results}) 
