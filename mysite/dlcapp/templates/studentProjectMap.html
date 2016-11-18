@@ -2,7 +2,6 @@
 <head>
   </head>
 <center><marquee><h1>PROJECTS IN DATABASE</h1></marquee></center><table border=\"1px\" align=\"center\">"
-<form method='GET' action='/modifymapping'>
 <tr>
     <th>Project Title</th>
     <th>Best Studet Match</th>
@@ -11,22 +10,24 @@
 </tr>    
 
 {% for item in query_results %}
+ <form method='GET' action='/modifyMapping/'>
         <tr>
         <td> {{ item.title }} </td>
 	<td> {{item.student_selected }} </td>
 	<td>
+          <input type="hidden" name="project_title" value="{{ item.title }}" >
+           <select class="select-style" name="student_choice"  >
 	<label class="major">
-                  <select class="select-style" name= {{ item.title }}>
 			<option selected="selected" value="0">Please Select</option>
 		{% for person in item.student %}
-		<option value="{{item.title}}"> {{person.name}} </option>
+		<option name="student_choice" value="{{person.name}}"> {{person.name}} </option>
 		{% endfor %}
 		 </label>
                  </select>
 	</td>
         <td><input type="submit" value="Save"></td>
         </tr>
-    {% endfor %}
 </form>
+    {% endfor %}
 </html>
 

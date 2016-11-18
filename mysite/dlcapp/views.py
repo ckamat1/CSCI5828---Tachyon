@@ -10,6 +10,7 @@ from django.shortcuts import render
 from django.template import loader
 from .models import Project
 from .models import Student
+from django.db.models import Q
 
 MYSQL_IP = "djangowebserverdb.c2f5vwvu1xss.us-west-2.rds.amazonaws.com"
 MYSQL_USER = "django"
@@ -188,6 +189,43 @@ def studentProjectMap(request):
             if float(student.gpa) > max_gpa:
                 max_gpa = float(student.gpa)
                 entry.student_selected= student.name
+        for student in student_query.filter(project2__contains=entry.title):
+            if float(student.gpa) > max_gpa:
+                max_gpa = float(student.gpa)
+                entry.student_selected= student.name
 
-        entry.student = student_query.filter(project1__contains=entry.title)    
+        for student in student_query.filter(project3__contains=entry.title):
+            if float(student.gpa) > max_gpa:
+                max_gpa = float(student.gpa)
+                entry.student_selected= student.name
+
+        for student in student_query.filter(project4__contains=entry.title):
+            if float(student.gpa) > max_gpa:
+                max_gpa = float(student.gpa)
+                entry.student_selected= student.name
+
+        for student in student_query.filter(project5__contains=entry.title):
+            if float(student.gpa) > max_gpa:
+                max_gpa = float(student.gpa)
+                entry.student_selected= student.name
+
+
+        entry.student = student_query.filter(Q(project1__contains=entry.title)|Q(project2__contains=entry.title)|Q(project3__contains=entry.title)|Q(project4__contains=entry.title)|Q(project5__contains=entry.title))   
+        project = Project.objects.get(project_id=entry.project_id)
+        if project.student_assigned :
+            entry.student_selected = project.student_assigned
+
     return render(request,'studentProjectMap.html',{'query_results':query_results}) 
+
+def modifyMapping(request):
+    student_choice = request.GET.get('student_choice','')    
+    project_name = request.GET.get('project_title','') 
+    query_result = Project.objects.all().filter(title__contains=project_name)
+    for entry in query_result:
+        project = Project.objects.get(project_id=entry.project_id)
+        project.student_assigned = student_choice
+        project.save()
+
+    return HttpResponseRedirect('/studentProjectMap/') 
+        
+    
