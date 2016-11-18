@@ -25,9 +25,12 @@ $(document).ready(function(){
             data+="</select>"
             //alert(data)
             div = "#selection"
+            str = "project"
             for (i=1;i<6;i++)
             {
-            	$(div + i).html(data);
+            	proj_name = str + i
+            	data1 = data.replace("major", proj_name)
+            	$(div + i).html(data1);
             }
         }});
     });
@@ -204,62 +207,62 @@ $(document).ready(function(){
 				  <p class="contact"><label for="Exp"><span style="font-size: 12pt">Apprentice Information </label></p>
 
 				 <p class="contact"><label for="DLA">Have you applied for a Discovery Learning Apprenticeship before?</label></p>
-				<input id="dla" type="radio" name="dla" value="male" tabindex="1" > Yes
-				<input id="dla" type="radio" name="dla" value="female"> No
-				<input id="dla" type="radio" name="dla" value="female"> Not sure<br>
+				<input id="dla" type="radio" name="dla" value="Yes" tabindex="1" > Yes
+				<input id="dla" type="radio" name="dla" value="No"> No
+				<input id="dla" type="radio" name="dla" value="NS"> Not sure<br>
 
 				<p class="contact"><label for="Baddress">Other fall employment planned</label></p>
 				<textarea rows="2" cols="55" input id="address" name="address" id="address" placeholder=""></textarea><br>
 
 				<fieldset>
                  <label>Indicate upto five research projects in order of interest </label><br><br>
-                  <label class="major">
+                  <label class="project1">
                   	<div id="selection1">
-						<select class="select-style" name="major"><option selected="selected" value="0">Please Select</option></select>
+						<select class="select-style" name="project1"><option selected="selected" value="0">Please Select</option></select>
 					</div>
                   </label>
                  </select>
               </fieldset> <br>
 			  <fieldset>
-			  <label class="major">
+			  <label class="project2">
 					<div id="selection2">
-						<select class="select-style" name="major"><option selected="selected" value="0">Please Select</option></select>
+						<select class="select-style" name="project2"><option selected="selected" value="0">Please Select</option></select>
 					</div>
 			  </label>
               </fieldset> <br>
 			  <fieldset>
-			  <label class="major">
+			  <label class="project3">
 					<div id="selection3">
-						<select class="select-style" name="major"><option selected="selected" value="0">Please Select</option></select>
+						<select class="select-style" name="project3"><option selected="selected" value="0">Please Select</option></select>
 					</div>
 			  </label>
               </fieldset> <br>
 			  <fieldset>
-			  <label class="major">
+			  <label class="project4">
 					<div id="selection4">
-						<select class="select-style" name="major"><option selected="selected" value="0">Please Select</option></select>
+						<select class="select-style" name="project4"><option selected="selected" value="0">Please Select</option></select>
 					</div>
 			  </label>
               </fieldset> <br>
 			  <fieldset>
-			  <label class="major">
+			  <label class="project5">
 					<div id="selection5">
-						<select class="select-style" name="major"><option selected="selected" value="0">Please Select</option></select>
+						<select class="select-style" name="project5"><option selected="selected" value="0">Please Select</option></select>
 					</div>
 			  </label>
               </fieldset> <br> <br>
 				 <fieldset>
 				<p class="contact"><label for="check">Have you had a background check yet (at CU)? <br>If yes when? (Take your best guess if you aren't sure.)</label></p>
-				<input id="check" type="radio" name="check" value="male" tabindex="1" > Yes
-				<input id="check" type="radio" name="check" value="female"> No
-				<input id="check" type="radio" name="check" value="female"> Not sure<br>
+				<input id="check" type="radio" name="check" value="Yes" tabindex="1" > Yes
+				<input id="check" type="radio" name="check" value="No"> No
+				<input id="check" type="radio" name="check" value="NS"> Not sure<br>
 				</fieldset>
 
 				</fieldset>
 				 <p class="contact"><label for="training">Have you had Discrimination and Harassment Awareness training yet (at CU)?<br> If yes when? (Take your best guess if you aren't sure.)</label></p>
-				<input id="training" type="radio" name="training" value="male" tabindex="1" > Yes
-				<input id="training" type="radio" name="training" value="female"> No
-				<input id="training" type="radio" name="training" value="female"> Not sure<br>
+				<input id="training" type="radio" name="training" value="Yes" tabindex="1" > Yes
+				<input id="training" type="radio" name="training" value="No"> No
+				<input id="training" type="radio" name="training" value="NS"> Not sure<br>
 
 				 <label>Last four digits of your SSN&nbsp <input class="gpa" maxlength="4" name="SSN" placeholder="0000" required=""></label>
 

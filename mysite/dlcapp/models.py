@@ -200,11 +200,11 @@ class Student(models.Model):
     graduation_date = models.CharField(max_length=20, blank=True, null=True)
     previous_research_exp = models.CharField(max_length=6, blank=True, null=True)
     previous_dlc_apply = models.CharField(db_column='previous_DLC_apply', max_length=6, blank=True, null=True)  # Field name made lowercase.
-    project1 = models.CharField(max_length=10, blank=True, null=True)
-    project2 = models.CharField(max_length=10, blank=True, null=True)
-    project3 = models.CharField(max_length=10, blank=True, null=True)
-    project4 = models.CharField(max_length=10, blank=True, null=True)
-    project5 = models.CharField(max_length=10, blank=True, null=True)
+    project1 = models.CharField(max_length=100, blank=True, null=True)
+    project2 = models.CharField(max_length=100, blank=True, null=True)
+    project3 = models.CharField(max_length=100, blank=True, null=True)
+    project4 = models.CharField(max_length=100, blank=True, null=True)
+    project5 = models.CharField(max_length=100, blank=True, null=True)
     background_check = models.CharField(max_length=6, blank=True, null=True)
     dandh_awarness = models.CharField(db_column='DandH_awarness', max_length=6, blank=True, null=True)  # Field name made lowercase.
     ssn = models.CharField(db_column='SSN', max_length=10, blank=True, null=True)  # Field name made lowercase.
