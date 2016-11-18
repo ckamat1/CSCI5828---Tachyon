@@ -1,6 +1,54 @@
 
 <html>
 <head>
+    <style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+table {
+    width:100%;
+}
+
+table#tab tr:nth-child(even) {
+    background-color: #e6e6e6;
+}
+table#tab  tr:nth-child(odd) {
+   background-color: #cccccc;
+}
+ th  {
+    font-size: 18px;
+    background-color: #595959;
+    color: white;
+}
+
+th, td {
+    padding: 5px;
+}
+
+
+body{
+
+	background:url('/static/dlcapp/images/background.jpg');
+	font-size: 20px;
+	overflow-y: static;
+}
+
+h1 {
+	font-family: "Lucida Console";
+	font-size: 40px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 20px;
+	padding: 25px;
+	padding-bottom : 10px;
+
+}
+
+</style>
 <script>
 function filter()
 {
@@ -9,7 +57,12 @@ document.forms["contactform"].submit();
 }
 </script>
   </head>
-<center><h1>PROJECTS IN DATABASE</h1></center><table border=\"1px\" align=\"center\">"
+<body>
+<div>
+<center><h1>LIST OF PROJECTS AVAILABLE</h1></center>
+    <table border=\"1px\" align=\"center\">
+    </table>
+    </div>
 <div  class="form">
     	<form id="contactform" action="/listOfProjects/">
 				<fieldset>
@@ -62,20 +115,21 @@ document.forms["contactform"].submit();
               </fieldset>
 </form>
 </div>
-     <thead>
-    <td>faculty name</td>
-   <td>faculty phone</td>
-   <td>faculty email</td>
-   <td>department offering</td>
-   <td>project title</td>
-   <td>project link</td>
-   <td>project requirments</td>
-   <td>project description</td>
-   <td>departments applicable</td>
-   <td>supervision</td>
-   <td>supervision_by</td>
-   <td>nature of work</td>   
-    </thead>
+    <table id="tab">
+     <tr>
+    <th>Faculty Name</th>
+   <th>Faculty Phone</th>
+   <th>Faculty Email</th>
+   <th>Department Offering</th>
+   <th>Project Title</th>
+   <th>Project Link</th>
+   <th>Project Requirments</th>
+   <th>Project Description</th>
+   <th>Departments Applicable</th>
+   <th>Supervision</th>
+   <th>Supervision_by</th>
+   <th>Nature of Work</th>
+    </tr>
     {% for item in query_results %}
 	<tr>
         <td> {{ item.faculty_name }} </td>
@@ -91,4 +145,7 @@ document.forms["contactform"].submit();
         <td> {{ item.supervision_by }} </td>
         <td> {{ item.nature_of_work }} </td>
 	</tr>
+
     {% endfor %}
+</table>
+    </body>
