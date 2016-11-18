@@ -9,6 +9,7 @@ from django.http import HttpResponse,HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.template import loader
 from .models import Project
+from .models import Student
 
 MYSQL_IP = "djangowebserverdb.c2f5vwvu1xss.us-west-2.rds.amazonaws.com"
 MYSQL_USER = "django"
@@ -41,69 +42,41 @@ def faculty(request):
 
 def register(request):
     if request.user.is_authenticated():
-        name=request.GET.get('name','')
-        gender=request.GET.get('gender','')
-        email = request.GET.get('email','')
-        etnonym = request.GET.get('origin','')
-        race = request.GET.get('race','')
-        boulder_address = request.GET.get('Baddress','')
-        boulder_phone = request.GET.get('Bphone','')
-        summer_address = request.GET.get('Saddress','')
-        summer_phone = request.GET.get('Sphone','')
-        student_id = request.GET.get('studno','')
-        primary_major = request.GET.get('Pmajor','')
-        secondary_major = request.GET.get('Smajor','')
-        gpa = request.GET.get('GPA','')
-        level = request.GET.get('levelSchool','')
-        graduation_year = request.GET.get('listGradYear','')
-        previous_exp = request.GET.get('exp','')
-        apprentice_info =request.GET.get('dla','')
-        other_employment = request.GET.get('otherempl','')
-        project1 = request.GET.get('project1','')
-        project2 = request.GET.get('project2','')
-        project3 = request.GET.get('project3','')
-        project4 = request.GET.get('project4','')
-        project5 = request.GET.get('project5','')
-        background_check  = request.GET.get('backgroundcheck','')
-        DandH_training = request.GET.get('training','')
-        ssn = request.GET.get('SSN','')
-        writeup1 = request.GET.get('writeup1','')
-        writeup2 = request.GET.get('writeup2','')
-        writeup3 = request.GET.get('writeup3','')
-        resume = request.GET.get('resumeupload','')
-        cover_letter = request.GET.get('coverletterupload','')
+        application = Student()
+        application.name=request.GET.get('name','')
+        application.gender=request.GET.get('gender','')
+        application.email_id = request.GET.get('email','')
+        application.ethnonym = request.GET.get('origin','')
+        application.race = request.GET.get('race','')
+        application.boulder_address = request.GET.get('Baddress','')
+        application.boulder_phone = request.GET.get('Bphone','')
+        application.summer_address = request.GET.get('Saddress','')
+        application.summer_phone = request.GET.get('Sphone','')
+        application.studentid = request.GET.get('studno','')
+        application.primary_major = request.GET.get('Pmajor','')
+        application.secondary_major = request.GET.get('Smajor','')
+        application.gpa = request.GET.get('GPA','')
+        application.school_level = request.GET.get('levelSchool','')
+        application.graduation_year = request.GET.get('listGradYear','')
+        application.previous_research_exp = request.GET.get('exp','')
+        application.previous_dlc_apply =request.GET.get('dla','')
+        application.other_employment = request.GET.get('otherempl','')
+        application.project1 = request.GET.get('project1','')
+        application.project2 = request.GET.get('project2','')
+        application.project3 = request.GET.get('project3','')
+        application.project4 = request.GET.get('project4','')
+        application.project5 = request.GET.get('project5','')
+        application.background_check  = request.GET.get('backgroundcheck','')
+        application.dandh_awarness = request.GET.get('training','')
+        application.ssn = request.GET.get('SSN','')
+        application.skills1 = request.GET.get('writeup1','')
+        application.skills2 = request.GET.get('writeup2','')
+        application.skills3 = request.GET.get('writeup3','')
+        application.resume_name = request.GET.get('resumeupload','')
+        application.cover_letter_name = request.GET.get('coverletterupload','')
+        application.save()
 
-        db = MySQLdb.connect(MYSQL_IP,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE)
-
-    # prepare a cursor object using cursor() method
-        cursor = db.cursor()
-
-    # execute SQL query using execute() method.
-        command="""insert into student values(' """ + gender + """ ',' """ + student_id + """ ',' """ + name + """',' """ + etnonym + """',' """ + race + """',' """ + boulder_phone + """',' """ + boulder_address + """',' """ + email + """',' """ + summer_address + """',' """ + summer_phone + """',' """ + primary_major + """',' """ + secondary_major + """',' """ + gpa + """',' """ + level + """',' """ + graduation_year + """',' """ + previous_exp + """',' """ + apprentice_info + """',' """ + project1 + """',' """ + project2 + """',' """ + project3 + """',' """ + project4 + """',' """ + project5 + """',' """ + background_check + """',' """ + DandH_training + """',' """ + ssn + """',' """ + resume + """',' """ + cover_letter + """',' """ + writeup1 + """',' """ + writeup2 + """',' """ + writeup3 + """');"""
-
-        cursor.execute(command)
-        db.commit()
-
-        command="""select * from student"""
-        cursor.execute(command)
-        row = cursor.fetchone()
-        response="<html><center><h1>RECORDS IN DATABASE</h1></center><table border=\"1px\" align=\"center\">"
-        response+=""" <thead>
-        <td>First Name</td>
-        <td>Last Name</td>
-            <td>Gender</td>
-        <td>Selected Project</td>
-        </thead>"""
-        while row is not None:
-            response+="<tr>"
-            for a in row:
-             response+="<td>" + str(a) +"</td>"
-
-            response+="</tr>"
-            row = cursor.fetchone()
-
-
-        return HttpResponse(response)
+        return HttpResponseRedirect('/listOfProjects/')
     else:
         raise Http404("You need to login to view this page!")
 

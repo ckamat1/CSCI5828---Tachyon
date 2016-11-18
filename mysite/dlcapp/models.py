@@ -198,22 +198,23 @@ class Student(models.Model):
     gpa = models.CharField(max_length=5, blank=True, null=True)
     school_level = models.CharField(max_length=20, blank=True, null=True)
     graduation_date = models.CharField(max_length=20, blank=True, null=True)
-    previous_research_exp = models.CharField(max_length=2, blank=True, null=True)
-    previous_dlc_apply = models.CharField(db_column='previous_DLC_apply', max_length=2, blank=True, null=True)  # Field name made lowercase.
+    previous_research_exp = models.CharField(max_length=6, blank=True, null=True)
+    previous_dlc_apply = models.CharField(db_column='previous_DLC_apply', max_length=6, blank=True, null=True)  # Field name made lowercase.
     project1 = models.CharField(max_length=10, blank=True, null=True)
     project2 = models.CharField(max_length=10, blank=True, null=True)
     project3 = models.CharField(max_length=10, blank=True, null=True)
     project4 = models.CharField(max_length=10, blank=True, null=True)
     project5 = models.CharField(max_length=10, blank=True, null=True)
-    background_check = models.CharField(max_length=2, blank=True, null=True)
-    dandh_awarness = models.CharField(db_column='DandH_awarness', max_length=2, blank=True, null=True)  # Field name made lowercase.
+    background_check = models.CharField(max_length=6, blank=True, null=True)
+    dandh_awarness = models.CharField(db_column='DandH_awarness', max_length=6, blank=True, null=True)  # Field name made lowercase.
     ssn = models.CharField(db_column='SSN', max_length=10, blank=True, null=True)  # Field name made lowercase.
     resume_name = models.CharField(max_length=10, blank=True, null=True)
     cover_letter_name = models.CharField(max_length=10, blank=True, null=True)
     skills1 = models.CharField(max_length=100, blank=True, null=True)
     skills2 = models.CharField(max_length=100, blank=True, null=True)
     skills3 = models.CharField(max_length=100, blank=True, null=True)
-
+    application_id = models.CharField(max_length=50, blank=True, null=False,primary_key=True)
+    other_employment = models.CharField(max_length=100, blank=True, null=True)
     class Meta:
         managed = False
         db_table = 'student'
