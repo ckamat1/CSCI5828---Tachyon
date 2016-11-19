@@ -10,11 +10,26 @@
         .messages {
             list-style: none;
         }
+
+        .logo img {
+            display: block;
+            margin-top: 0px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100px;
+            height:100px
+                }
+
+        .hd1 {
+        text-align: center
+        }
+
     </style>
     {% block css %}{% endblock css %}
 </head>
 
 <body>
+
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -36,7 +51,13 @@
         </div><!--/.navbar-collapse -->
       </div>
     </div>
+
+
     <div class="jumbotron">
+         <div class="logo">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Colorado_Buffs_alternate_logo.png/220px-Colorado_Buffs_alternate_logo.png" alt="University of Colorado">
+  </div>
+
         <div class="container">{% block headline %}{% endblock headline %}</div>
     </div>
     <div class="container">
