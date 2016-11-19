@@ -1,13 +1,84 @@
 <html>
 <head>
+
+  <link rel="stylesheet" href="/static/dlcapp/style.css" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/static/dlcapp/css/style_demo.css" media="all">
+
+    <style>
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+table {
+    width:100%;
+}
+
+table#tab tr:nth-child(even) {
+    background-color: #e6e6e6;
+}
+table#tab  tr:nth-child(odd) {
+   background-color: #cccccc;
+}
+ th  {
+    font-size: 18px;
+    background-color: #595959;
+    color: white;
+}
+
+th, td {
+    padding: 5px;
+}
+
+
+body{
+
+	background:url('/static/dlcapp/images/background.jpg');
+	font-size: 20px;
+	overflow-y: static;
+}
+
+h1 {
+	font-family: "Lucida Console";
+	font-size: 40px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 20px;
+	padding: 30px;
+	padding-bottom : 25px;
+
+}
+
+
+
+</style>
+
+
+ <div class="DLA-top">
+                <a href="/user/" target="_self">Home</a>
+                <span class="right">
+                    <a href="/accounts/logout/">
+                        <strong>Logout</strong>
+                    </a>
+                </span>
+                <div class="clr"></div>
+</div>
+
   </head>
-<center><marquee><h1>PROJECTS IN DATABASE</h1></marquee></center><table border=\"1px\" align=\"center\">"
+<center><marquee><h1>PROJECTS MATRIX</h1></marquee></center><table border=\"1px\" align=\"center\">
+
+
+<table id="tab">
+
 <tr>
     <th>Project Title</th>
-    <th>Best Studet Match</th>
+    <th>Best Student Match</th>
    <th>Override Selection</th>
-   <th>CLick save to override<th>
-</tr>    
+   <th>Click save to override<th>
+
+</tr>
 
 {% for item in query_results %}
  <form method='GET' action='/modifyMapping/'>
@@ -18,16 +89,18 @@
           <input type="hidden" name="project_title" value="{{ item.title }}" >
            <select class="select-style" name="student_choice"  >
 	<label class="major">
-			<option selected="selected" value="0">Please Select</option>
+			<option selected="selected" value="0" style="height: 50; width: 150; font-size: 15pt" >Please Select</option>
 		{% for person in item.student %}
 		<option name="student_choice" value="{{person.name}}"> {{person.name}} </option>
 		{% endfor %}
 		 </label>
                  </select>
 	</td>
-        <td><input type="submit" value="Save"></td>
+        <td><input type="submit" value="Save" style="height: 30; width: 65; font-size: 15pt"></td>
         </tr>
 </form>
     {% endfor %}
+
+    </table>
 </html>
 
