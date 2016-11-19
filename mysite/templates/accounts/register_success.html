@@ -3,10 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Successful Registration</title>
+
+
+  <style>
+
+  body{
+	font-family: Cambria, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+	background:url('/static/dlcapp/images/background.jpg');
+	font-weight: 400;
+	font-size: 15px;
+	color: #3a2127;
+	overflow-y: static;
+	text-align: center;
+}
+
+.logo img{
+display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70px;
+    height:70px
+}
+
+button {
+    height: 40px;
+    font-size: 14pt;
+    width: 5%;
+    margin-bottom: 10px;
+}
+
+</style>
+
 </head>
+
 <body>
+
+  <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Colorado_Buffs_alternate_logo.png/220px-Colorado_Buffs_alternate_logo.png" alt="University of Colorado">
+            </div>
+
+<div class="heading1">
 <h1>Thanks for Registering. Please click on login to continue</h1>
-<a href="{%url 'Login'%}">Login</a>
+
+
+      <div class="container-fluid" align="center" style="line-height: 50px" >
+            <form method="get">
+                <div id="about1">
+                    <button formaction="{%url 'Login'%}">Login</button><br>
+                </div>
+            </form>
+        </div>
+        </div>
 
 </body>
 </html>
