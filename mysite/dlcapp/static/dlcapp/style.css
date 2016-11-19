@@ -31,12 +31,13 @@ font-size:20;
 
 #about1
 {
-font-size: 20px;
-background-color:white;
+font-size: 28px;
+color: white;
+background-color:none;
 opacity: 0.9;
-margin: 100px;
+margin: 50px;
 width: 400px;
-height: 250px;
+height: 300px;
 }
 
 li

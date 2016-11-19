@@ -64,10 +64,20 @@ a{
     text-align: center;
 }
 
+.logo img{
+display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70px;
+    height:70px
+
+}
+
 /*heading*/
 .container > header h1{
 	position: relative;
-	color: #498ea5;
+	color: black;
 	font-weight: 700;
 	font-style: normal;
 	font-size: 30px;
@@ -92,9 +102,9 @@ a{
 }
 /* Header Style */
 .DLA-top{
-	line-height: 24px;
-	font-size: 11px;
-	background: rgba(0, 0, 0, 0.05);
+	line-height: 30px;
+	font-size: 13px;
+	background: rgba(0, 0, 0, 0.10);
 	text-transform: uppercase;
 	z-index: 9999;
 	position: relative;
