@@ -230,12 +230,26 @@ def modifyMapping(request):
     return HttpResponseRedirect('/studentProjectMap/') 
         
 def exportMapping(request):
-    headers = ('Name', 'GPA')
+    #headers = ('Name', 'GPA')
+    studentFields = 2
     data = []
-    data = tablib.Dataset(*data, headers=headers)
+    data = tablib.Dataset(*data )
+    projects = Project.objects.all()
+    projectsList = []
+    for emptySpace in range(studentFields):
+        projectsList.append("")
+    for project in projects:
+        projectsList.append(project.title)
+    projectsTotal = len(projects)
+    data.append(tuple(projectsList))
     students = Student.objects.all()
     for student in students:
-        data.append((student.name, student.gpa))
+        studentTuple = [ ]
+        studentTuple.append(student.name)
+        studentTuple.append(student.gpa)
+        for emptySpace in range(projectsTotal):
+            studentTuple.append("")
+        data.append(tuple(studentTuple))
     response = HttpResponse(data.xls, content_type='application/vnd.ms-excel;charset=utf-8')
     response['Content-Disposition'] = "attachment; filename=exportMapping.xls"
     return response  
