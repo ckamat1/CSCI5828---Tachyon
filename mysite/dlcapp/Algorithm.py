@@ -1,11 +1,24 @@
 from .models import Project, Student, Faculty
 from django.db.models import Q
 
+class Student:
+    def __init__(self, studentID):
+        self.studentID = studentID
+        self.priority = 0
+
+
+
 
 class Algorithm(object):
-    def getStudentGpaAbove3(self):
-        self.eligible_students = Student.objects.filter(gpa__gte = '3.0')
-        return self.eligible_students
+    def __init__(self):
+        self.eligible_students = None
+        self.valid_projects = None
+
+    def getValidStudents(self):
+        eligible_students = Student.objects.filter(gpa__gte = '3.0')
+        #Need to eliminate students who have past DLA experience, who are grad students and who are not a part of CU engineering. Front end yet to be implemented..
+        self.eligible_students = eligible_students
+        return eligible_students
 
     def getValidProjects(self):
         project_query = Project.objects.all()
@@ -18,8 +31,10 @@ class Algorithm(object):
                                              |Q(project5__contains=entry.title))
             if query_set.exists():
                 valid_projects.append(entry)
-
+        self.valid_projects = valid_projects
         return valid_projects
+
+
 
 
 
