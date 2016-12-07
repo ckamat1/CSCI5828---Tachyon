@@ -32,4 +32,5 @@ urlpatterns = [url(r'^$',HomepageView.as_view(),name='home'),
                url(r'^addProject/',views.addProject,name='addProject'),
                url(r'^accounts/register/', SignUpView.as_view(),name='Signup'),
                url(r'^accounts/login/', LoginView.as_view(), name='Login'),
-               url(r'^accounts/logout/', LogoutView.as_view(),name='Logout')]
+               url(r'^accounts/logout/', LogoutView.as_view(),name='Logout'),
+               url(r'^exportMapping/', views.exportMapping,name='export_mapping')]

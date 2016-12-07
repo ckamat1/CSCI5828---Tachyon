@@ -11,6 +11,7 @@ from django.template import loader
 from .models import Project
 from .models import Student
 from django.db.models import Q
+import tablib
 
 MYSQL_IP = "djangowebserverdb.c2f5vwvu1xss.us-west-2.rds.amazonaws.com"
 MYSQL_USER = "django"
@@ -228,4 +229,13 @@ def modifyMapping(request):
 
     return HttpResponseRedirect('/studentProjectMap/') 
         
-    
+def exportMapping(request):
+    headers = ('Name', 'GPA')
+    data = []
+    data = tablib.Dataset(*data, headers=headers)
+    students = Student.objects.all()
+    for student in students:
+        data.append((student.name, student.gpa))
+    response = HttpResponse(data.xls, content_type='application/vnd.ms-excel;charset=utf-8')
+    response['Content-Disposition'] = "attachment; filename=exportMapping.xls"
+    return response  
