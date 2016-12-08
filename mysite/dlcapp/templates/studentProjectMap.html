@@ -22,7 +22,7 @@ table#tab  tr:nth-child(odd) {
    background-color: #cccccc;
 }
  th  {
-    font-size: 18px;
+    font-size: 20px;
     background-color: #595959;
     color: white;
 }
@@ -55,13 +55,14 @@ h1 {
 
 div button {
     line-height: 15px;
+
     width: 130px;
     font-size: 13pt;
     font-family: tahoma;
     margin-top: 1px;
     margin-bottom: 10px;
     margin-left: 30px;
-float :left;
+    float :left;
 
 }
 
@@ -73,7 +74,7 @@ div input {
     margin-top: 1px;
     margin-bottom: 10px;
     margin-right: 30px;
-float :right;
+    float :right;
 
 }
 
@@ -124,16 +125,16 @@ float :right;
 	<td> {{item.student_selected }} </td>
 	<td>
           <input type="hidden" name="project_title" value="{{ item.title }}" >
-           <select class="select-style" name="student_choice"  >
+           <select class="select-style" name="student_choice" style="height: 25; width: 180; font-size: 10pt text-align=center valign=middle " >
 	<label class="major">
-			<option selected="selected" value="0" style="height: 50; width: 150; font-size: 15pt" >Please Select</option>
+			<option selected="selected" value="0"  >Please Select</option>
 		{% for person in item.student %}
 		<option name="student_choice" value="{{person.name}}"> {{person.name}} </option>
 		{% endfor %}
 		 </label>
                  </select>
 	</td>
-        <td><input type="submit" value="Save" style="height: 30; width: 65; font-size: 15pt"></td>
+        <td><input type="submit" value="Save" style="height: 30; width: 65; font-size: 15pt "></td>
         </tr>
 </form>
     {% endfor %}
