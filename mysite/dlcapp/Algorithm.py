@@ -15,8 +15,9 @@ class Algorithm(object):
         self.valid_projects = None
 
     def getValidStudents(self):
-        eligible_students = Student.objects.filter(gpa__gte = '3.0')
-        #Need to eliminate students who have past DLA experience, who are grad students and who are not a part of CU engineering. Front end yet to be implemented..
+        eligible_students = Student.objects.filter(gpa__gte = '3.0').filter(pastdla_experience__contains = 'No')\
+            .filter(student_commitment__contains = 'Yes').filter(student_ispart_engineering__contains = 'Yes')
+        #Need to eliminate students who have past DLA experience, who are grad students and who are not a part of CU engineering.
         self.eligible_students = eligible_students
         return eligible_students
 
@@ -33,6 +34,12 @@ class Algorithm(object):
                 valid_projects.append(entry)
         self.valid_projects = valid_projects
         return valid_projects
+
+
+    def Match(self):
+        valid_projects = self.valid_projects
+        eligible_students = self.eligible_students
+
 
 
 
