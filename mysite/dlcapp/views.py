@@ -185,32 +185,6 @@ def studentProjectMap(request):
     query_results = Project.objects.all()
     student_query = Student.objects.all()
     for entry in query_results:
-        entry.student_selected = "NA"
-        max_gpa = 0.0
-        for student in student_query.filter(project1__contains=entry.title):
-            if float(student.gpa) > max_gpa:
-                max_gpa = float(student.gpa)
-                entry.student_selected= student.name
-        for student in student_query.filter(project2__contains=entry.title):
-            if float(student.gpa) > max_gpa:
-                max_gpa = float(student.gpa)
-                entry.student_selected= student.name
-
-        for student in student_query.filter(project3__contains=entry.title):
-            if float(student.gpa) > max_gpa:
-                max_gpa = float(student.gpa)
-                entry.student_selected= student.name
-
-        for student in student_query.filter(project4__contains=entry.title):
-            if float(student.gpa) > max_gpa:
-                max_gpa = float(student.gpa)
-                entry.student_selected= student.name
-
-        for student in student_query.filter(project5__contains=entry.title):
-            if float(student.gpa) > max_gpa:
-                max_gpa = float(student.gpa)
-                entry.student_selected= student.name
-
 
         entry.student = student_query.filter(Q(project1__contains=entry.title)|Q(project2__contains=entry.title)|Q(project3__contains=entry.title)|Q(project4__contains=entry.title)|Q(project5__contains=entry.title))   
         project = Project.objects.get(project_id=entry.project_id)
@@ -221,12 +195,52 @@ def studentProjectMap(request):
 
 def modifyMapping(request):
     student_choice = request.GET.get('student_choice','')    
-    project_name = request.GET.get('project_title','') 
-    query_result = Project.objects.all().filter(title__contains=project_name)
-    for entry in query_result:
-        project = Project.objects.get(project_id=entry.project_id)
-        project.student_assigned = student_choice
-        project.save()
+    project_name = request.GET.get('project_title','')
+    reset_mapping_flag = request.GET.get('reset_mapping','')
+    if reset_mapping_flag != "true": 
+        query_result = Project.objects.all().filter(title__contains=project_name)
+        for entry in query_result:
+            project = Project.objects.get(project_id=entry.project_id)
+            project.student_assigned = student_choice
+            project.save()
+    elif reset_mapping_flag == "true":
+
+        query_results = Project.objects.all()
+        student_query = Student.objects.all()
+        for entry in query_results:
+            entry.student_selected = "NA"
+            max_gpa = 0.0
+            for student in student_query.filter(project1__contains=entry.title):
+                if float(student.gpa) > max_gpa:
+                    max_gpa = float(student.gpa)
+                    entry.student_selected= student.name
+            for student in student_query.filter(project2__contains=entry.title):
+                if float(student.gpa) > max_gpa:
+                    max_gpa = float(student.gpa)
+                    entry.student_selected= student.name
+
+            for student in student_query.filter(project3__contains=entry.title):
+                if float(student.gpa) > max_gpa:
+                    max_gpa = float(student.gpa)
+                    entry.student_selected= student.name
+
+            for student in student_query.filter(project4__contains=entry.title):
+                if float(student.gpa) > max_gpa:
+                    max_gpa = float(student.gpa)
+                    entry.student_selected= student.name
+
+            for student in student_query.filter(project5__contains=entry.title):
+                if float(student.gpa) > max_gpa:
+                    max_gpa = float(student.gpa)
+                    entry.student_selected= student.name
+            
+            
+            project = Project.objects.get(project_id=entry.project_id)
+            project.student_assigned = entry.student_selected
+            project.save()
+
+    else:
+        pass
 
     return HttpResponseRedirect('/studentProjectMap/') 
         
