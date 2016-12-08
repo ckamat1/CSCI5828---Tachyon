@@ -215,6 +215,9 @@ class Student(models.Model):
     skills3 = models.CharField(max_length=100, blank=True, null=True)
     application_id = models.CharField(max_length=50, blank=True, null=False,primary_key=True)
     other_employment = models.CharField(max_length=100, blank=True, null=True)
+    pastdla_experience = models.CharField(max_length=50, blank=True, null=True)
+    student_commitment = models.CharField(max_length=50, blank=True, null=True)
+    student_ispart_engineering = models.CharField(max_length=50, blank=True, null=True)
     class Meta:
         managed = False
         db_table = 'student'
