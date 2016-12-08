@@ -63,6 +63,9 @@ def register(request):
         application.graduation_year = request.GET.get('listGradYear','')
         application.previous_research_exp = request.GET.get('exp','')
         application.previous_dlc_apply =request.GET.get('dla','')
+        application.pastdla_experience = request.GET.get('dlayn','')
+        application.student_commitment = request.GET.get('dlayear','')
+        application.student_ispart_engineering = request.GET.get('studcoll','')
         application.other_employment = request.GET.get('otherempl','')
         application.project1 = request.GET.get('project1','')
         application.project2 = request.GET.get('project2','')
@@ -263,7 +266,17 @@ def exportMapping(request):
         studentTuple.append(student.name)
         studentTuple.append(student.gpa)
         for emptySpace in range(projectsTotal):
-            studentTuple.append("")
+            assignedFlag=False
+            for project in  projects.filter(title__contains=data[0][studentFields+emptySpace]):
+                if student.name in project.student_assigned:
+                    assignedFlag=True
+            for previousStudents in range(1,len(data)):
+                if data[previousStudents][studentFields+emptySpace] == "X" :
+                    assignedFlag = False
+            if assignedFlag == True:
+                studentTuple.append("X")
+            else:
+                studentTuple.append("")
         data.append(tuple(studentTuple))
     response = HttpResponse(data.xls, content_type='application/vnd.ms-excel;charset=utf-8')
     response['Content-Disposition'] = "attachment; filename=exportMapping.xls"
