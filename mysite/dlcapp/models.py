@@ -163,7 +163,7 @@ class Project(models.Model):
     supervision_by = models.CharField(max_length=200, blank=True, null=True)
     nature_of_work = models.CharField(max_length=200, blank=True, null=True)
     prior_work_experience = models.CharField(max_length=200, blank=True, null=True)
-    desired_studend_id = models.CharField(max_length=200, blank=True, null=True)
+    desired_student_id = models.CharField(max_length=200, blank=True, null=True)
     speed_type = models.CharField(max_length=200, blank=True, null=True)
     accounting_contact = models.CharField(max_length=50, blank=True, null=True)
     previous_dlc_exp = models.CharField(db_column='previous_DLC_exp', max_length=5, blank=True, null=True)  # Field name made lowercase.

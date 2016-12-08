@@ -12,6 +12,7 @@ from .models import Project
 from .models import Student
 from django.db.models import Q
 import tablib
+from .Algorithm import Algorithm
 
 MYSQL_IP = "djangowebserverdb.c2f5vwvu1xss.us-west-2.rds.amazonaws.com"
 MYSQL_USER = "django"
@@ -139,7 +140,7 @@ def addProject(request):
         project.supervision_by=request.GET.get('supv','')
         project.nature_of_work=request.GET.get('natw','')
         project.prior_work_experience=request.GET.get('workc','')
-        project.desired_studend_id=request.GET.get('student','')
+        project.desired_student_id=request.GET.get('student','')
         project.speed_type=request.GET.get('finances','')
         project.accounting_contact=request.GET.get('account','')
         project.previous_dlc_exp=request.GET.get('radiobutton2','')
@@ -253,3 +254,15 @@ def exportMapping(request):
     response = HttpResponse(data.xls, content_type='application/vnd.ms-excel;charset=utf-8')
     response['Content-Disposition'] = "attachment; filename=exportMapping.xls"
     return response  
+
+
+# def StudentProjectMap_new(request):
+#     algorithm = Algorithm()
+#     student_query = algorithm.getStudentGpaAbove3()
+#     project_query = algorithm.getValidProjects()
+#     response = HttpResponse()
+#     # for student in student_query:
+#     #     response.write(student.name)
+#     for proj in project_query:
+#         response.write(proj.title)
+#     return response
