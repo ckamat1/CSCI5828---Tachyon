@@ -263,7 +263,17 @@ def exportMapping(request):
         studentTuple.append(student.name)
         studentTuple.append(student.gpa)
         for emptySpace in range(projectsTotal):
-            studentTuple.append("")
+            assignedFlag=False
+            for project in  projects.filter(title__contains=data[0][studentFields+emptySpace]):
+                if student.name in project.student_assigned:
+                    assignedFlag=True
+            for previousStudents in range(1,len(data)):
+                if data[previousStudents][studentFields+emptySpace] == "X" :
+                    assignedFlag = False
+            if assignedFlag == True:
+                studentTuple.append("X")
+            else:
+                studentTuple.append("")
         data.append(tuple(studentTuple))
     response = HttpResponse(data.xls, content_type='application/vnd.ms-excel;charset=utf-8')
     response['Content-Disposition'] = "attachment; filename=exportMapping.xls"
