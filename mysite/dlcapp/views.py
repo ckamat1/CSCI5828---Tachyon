@@ -183,70 +183,146 @@ def filterStudentForm(request):
     else:
         raise Http404("You need to login to view this page!")
 
+MODIFY_MAPPING = False
+QUERY_RESULTS = None
+
+# def studentProjectMap(request):
+#     # query_results = Project.objects.all()
+#     # student_query = Student.objects.all()
+#     algorithm = Algorithm()
+#     student_query = algorithm.eligible_students
+#     global  MODIFY_MAPPING
+#     global QUERY_RESULTS
+#     if not MODIFY_MAPPING:
+#
+#         query_results = algorithm.Match()
+#         QUERY_RESULTS = query_results
+#
+#         # return render(request, 'studentProjectMap.html', {'query_results': query_results})
+#         for entry in query_results:
+#             entry.student = student_query.filter(Q(project1__contains=entry.title)|Q(project2__contains=entry.title)|Q(project3__contains=entry.title)|Q(project4__contains=entry.title)|Q(project5__contains=entry.title))
+#         #     project = Project.objects.get(project_id=entry.project_id)
+#         #     if project.student_assigned :
+#         #         entry.student_selected = project.student_assigned
+#     else:
+#         query_results = QUERY_RESULTS
+#         for entry in query_results:
+#             entry.student = student_query.filter(Q(project1__contains=entry.title)|Q(project2__contains=entry.title)|Q(project3__contains=entry.title)|Q(project4__contains=entry.title)|Q(project5__contains=entry.title))
+#         #     project = Project.objects.get(project_id=entry.project_id)
+#         # for entry in query_results:
+#         #     entry.student_selected = entry.student_assigned
+#     return render(request, 'studentProjectMap.html', {'query_results': query_results})
 
 def studentProjectMap(request):
-    query_results = Project.objects.all()
-    student_query = Student.objects.all()
-    for entry in query_results:
+    algorithm = Algorithm()
+    query_results = algorithm.Match()
+    return render(request, 'studentProjectMap.html', {'query_results': query_results})
 
-        entry.student = student_query.filter(Q(project1__contains=entry.title)|Q(project2__contains=entry.title)|Q(project3__contains=entry.title)|Q(project4__contains=entry.title)|Q(project5__contains=entry.title))   
-        project = Project.objects.get(project_id=entry.project_id)
-        if project.student_assigned :
-            entry.student_selected = project.student_assigned
 
-    return render(request,'studentProjectMap.html',{'query_results':query_results}) 
+
 
 def modifyMapping(request):
-    student_choice = request.GET.get('student_choice','')    
+    student_choice = request.GET.get('student_choice','')
     project_name = request.GET.get('project_title','')
     reset_mapping_flag = request.GET.get('reset_mapping','')
-    if reset_mapping_flag != "true": 
-        query_result = Project.objects.all().filter(title__contains=project_name)
-        for entry in query_result:
-            project = Project.objects.get(project_id=entry.project_id)
-            project.student_assigned = student_choice
-            project.save()
+    algorithm = Algorithm()
+    if reset_mapping_flag != "true":
+
+        valid_projects = algorithm.valid_projects
+        student_query = algorithm.eligible_students
+        for entry in valid_projects:
+            if entry.title == project_name:
+                entry.student_assigned = student_choice
+                entry.save()
+
+            entry.student = student_query.filter(
+                    Q(project1__contains=entry.title) | Q(project2__contains=entry.title) | Q(
+                        project3__contains=entry.title) | Q(project4__contains=entry.title) | Q(
+                        project5__contains=entry.title))
+
+        query_results = algorithm.valid_projects
     elif reset_mapping_flag == "true":
-
-        query_results = Project.objects.all()
-        student_query = Student.objects.all()
-        for entry in query_results:
-            entry.student_selected = "NA"
-            max_gpa = 0.0
-            for student in student_query.filter(project1__contains=entry.title):
-                if float(student.gpa) > max_gpa:
-                    max_gpa = float(student.gpa)
-                    entry.student_selected= student.name
-            for student in student_query.filter(project2__contains=entry.title):
-                if float(student.gpa) > max_gpa:
-                    max_gpa = float(student.gpa)
-                    entry.student_selected= student.name
-
-            for student in student_query.filter(project3__contains=entry.title):
-                if float(student.gpa) > max_gpa:
-                    max_gpa = float(student.gpa)
-                    entry.student_selected= student.name
-
-            for student in student_query.filter(project4__contains=entry.title):
-                if float(student.gpa) > max_gpa:
-                    max_gpa = float(student.gpa)
-                    entry.student_selected= student.name
-
-            for student in student_query.filter(project5__contains=entry.title):
-                if float(student.gpa) > max_gpa:
-                    max_gpa = float(student.gpa)
-                    entry.student_selected= student.name
-            
-            
-            project = Project.objects.get(project_id=entry.project_id)
-            project.student_assigned = entry.student_selected
-            project.save()
-
+        query_results = algorithm.Match()
     else:
         pass
 
-    return HttpResponseRedirect('/studentProjectMap/') 
-        
+    return render(request, 'studentProjectMap.html', {'query_results': query_results})
+
+
+
+
+
+
+
+
+# def modifyMapping(request):
+#     student_choice = request.GET.get('student_choice','')
+#     project_name = request.GET.get('project_title','')
+#     reset_mapping_flag = request.GET.get('reset_mapping','')
+#     global  MODIFY_MAPPING
+#     global QUERY_RESULTS
+#     MODIFY_MAPPING = True
+#     if reset_mapping_flag != "true":
+#         # query_result = Project.objects.all().filter(title__contains=project_name)
+#         # # algorithm = Algorithm()
+#         # project = query_result.get(title__contains=project_name)
+#         # project.student_assigned = student_choice
+#         # project.save()
+#         # for entry in query_result:
+#         #     project = Project.objects.get(project_id=entry.project_id)
+#         #     project.student_assigned = student_choice
+#         #     project.save()
+#         algorithm = Algorithm()
+#         valid_projects = algorithm.valid_projects
+#         for entry in valid_projects:
+#             if entry.title == project_name:
+#                 entry.student_assigned = student_choice
+#                 entry.save()
+#         QUERY_RESULTS = algorithm.valid_projects
+#     elif reset_mapping_flag == "true":
+#
+#         algorithm = Algorithm()
+#         # query_results = Project.objects.all()
+#         # student_query = Student.objects.all()
+#         query_results = algorithm.Match()
+#         QUERY_RESULTS = query_results
+#         # for entry in query_results:
+#         #     # entry.student_selected = "NA"
+#         #     # max_gpa = 0.0
+#         #     # for student in student_query.filter(project1__contains=entry.title):
+#         #     #     if float(student.gpa) > max_gpa:
+#         #     #         max_gpa = float(student.gpa)
+#         #     #         entry.student_selected= student.name
+#         #     # for student in student_query.filter(project2__contains=entry.title):
+#         #     #     if float(student.gpa) > max_gpa:
+#         #     #         max_gpa = float(student.gpa)
+#         #     #         entry.student_selected= student.name
+#         #     #
+#         #     # for student in student_query.filter(project3__contains=entry.title):
+#         #     #     if float(student.gpa) > max_gpa:
+#         #     #         max_gpa = float(student.gpa)
+#         #     #         entry.student_selected= student.name
+#         #     #
+#         #     # for student in student_query.filter(project4__contains=entry.title):
+#         #     #     if float(student.gpa) > max_gpa:
+#         #     #         max_gpa = float(student.gpa)
+#         #     #         entry.student_selected= student.name
+#         #     #
+#         #     # for student in student_query.filter(project5__contains=entry.title):
+#         #     #     if float(student.gpa) > max_gpa:
+#         #     #         max_gpa = float(student.gpa)
+#         #     #         entry.student_selected= student.name
+#         #
+#         #
+#         #     project = Project.objects.get(project_id=entry.project_id)
+#         #     project.student_assigned = entry.student_selected
+#         #     project.save()
+#
+#     else:
+#         pass
+#
+#     return HttpResponseRedirect('/studentProjectMap/')
+#
 def exportMapping(request):
     #headers = ('Name', 'GPA')
     studentFields = 2
@@ -283,13 +359,10 @@ def exportMapping(request):
     return response  
 
 
-# def StudentProjectMap_new(request):
-#     algorithm = Algorithm()
-#     student_query = algorithm.getStudentGpaAbove3()
-#     project_query = algorithm.getValidProjects()
-#     response = HttpResponse()
-#     # for student in student_query:
-#     #     response.write(student.name)
-#     for proj in project_query:
-#         response.write(proj.title)
-#     return response
+def StudentProjectMap_new(request):
+    algorithm = Algorithm()
+    query_results = algorithm.Match()
+    response = HttpResponse()
+    for item in query_results:
+        response.write(item.title), response.write(item.student_selected),
+    return response
